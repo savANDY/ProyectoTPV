@@ -17,12 +17,12 @@ public class ControladorProducto {
 
 	public ArrayList<Producto> todosProductos() throws Exception {
 
-		ArrayList<Producto> categorias;
+		ArrayList<Producto> productos;
 
 		try {
 
-			categorias = modeloProducto.seleccionarTodos();
-			return categorias;
+			productos = modeloProducto.seleccionarTodos();
+			return productos;
 
 		} catch (Exception e) {
 			throw e;
@@ -30,5 +30,22 @@ public class ControladorProducto {
 			// e.getMessage();
 		}
 	}
+	public ArrayList<Producto> productoPorCategoria(int idCategoria) throws Exception {
+		
+		ArrayList<Producto> productos;
+
+		try {
+
+			productos = modeloProducto.seleccionarPorCategoria(idCategoria);
+			return productos;
+
+		} catch (Exception e) {
+			throw e;
+			// e.printStackTrace();
+			// e.getMessage();
+		}
+		
+	}
+	
 	
 }

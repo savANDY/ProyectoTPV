@@ -59,6 +59,10 @@
 	<%@page import="java.util.ArrayList"%>
 
 
+	<%
+		ControladorProducto controladorProducto;
+	%>
+
 	<header id="header" class="media"> <a href="" id="menu-toggle"></a>
 	<a class="logo pull-left"
 		href="http://byrushan.com/projects/sa/1-0-3/index.html">BAR EGUZKI</a>
@@ -939,8 +943,10 @@
 							<div class="row">
 								<div class="panel panel-default">
 
-									<table class="table table-striped table-fixed">
-										<thead>
+
+
+									<table id="ticket" class="table table-striped table-fixed">
+	<thead>
 											<tr>
 												<th class="col-xs-1">#</th>
 												<th class="col-xs-1">x</th>
@@ -948,8 +954,8 @@
 												<th class="col-xs-2">Precio</th>
 											</tr>
 										</thead>
-										<tbody>
-											<tr>
+                    <tbody>
+  <tr>
 												<td class="col-xs-1">1</td>
 												<td class="col-xs-1">1x</td>
 												<td class="col-xs-8">Mike Adams</td>
@@ -1022,7 +1028,9 @@
 												<td class="col-xs-2">6</td>
 											</tr>
 										</tbody>
-									</table>
+</table>
+<input type="button" name="add" value="+Add" id="addrows" style="color:#3300FF; font-size:16px; " />
+									
 								</div>
 							</div>
 						</div>
@@ -1174,6 +1182,11 @@
 
 								<div class="block-area shortcut-area">
 
+									<a class="shortcut tile" data-toggle="tab" href="#todos"> <img
+										src="./img/productos/todos.png" alt=""> <small
+										class="t-overflow">Todos</small>
+									</a>
+
 									<%
 										ControladorCategoria controladorCategoria = new ControladorCategoria();
 										ArrayList<Categoria> categorias = new ArrayList<Categoria>();
@@ -1182,8 +1195,9 @@
 										for (Categoria cat : categorias) {
 									%>
 
-									<a class="shortcut tile" data-toggle="tab" href="#Desayuno">
-										<img src="<%=cat.getImagen()%>" alt=""> <small
+									<a class="shortcut tile" data-toggle="tab"
+										href="#<%=cat.getNombre()%>"> <img
+										src="<%=cat.getImagen()%>" alt=""> <small
 										class="t-overflow"><%=cat.getNombre()%></small>
 									</a>
 
@@ -1204,22 +1218,23 @@
 									<div class="listview todo-list sortable">
 										<div class="block-area shortcut-area" class="tab-pane">
 
+											<%
+												controladorProducto = new ControladorProducto();
+												ArrayList<Producto> todosProductos = new ArrayList<Producto>();
+												todosProductos = controladorProducto.todosProductos();
+
+												for (Producto prod : todosProductos) {
+											%>
+
+
 											<a class="shortcut tile" href=""> <img
-												src="img/shortcuts/money.png" alt=""> <small
-												class="t-overflow">Purchases</small>
-											</a> <a class="shortcut tile" href=""> <img
-												src="img/shortcuts/money.png" alt=""> <small
-												class="t-overflow">Purchases</small>
-											</a> <a class="shortcut tile" href=""> <img
-												src="img/shortcuts/twitter.png" alt=""> <small
-												class="t-overflow">Tweets</small>
-											</a> <a class="shortcut tile" href=""> <img
-												src="img/shortcuts/calendar.png" alt=""> <small
-												class="t-overflow">Calendar</small>
-											</a> <a class="shortcut tile" href=""> <img
-												src="img/shortcuts/stats.png" alt=""> <small
-												class="t-overflow">Statistics</small>
+												src="<%=prod.getImagen()%>" alt=""> <small
+												class="t-overflow"><%=prod.getNombre()%></small>
 											</a>
+
+											<%
+												}
+											%>
 
 										</div>
 
@@ -1232,25 +1247,27 @@
 								</li>
 
 
-
-								<li id="Desayuno" class="tab-pane fade">
+								<%
+									for (Categoria cat : categorias) {
+										String nomCat = cat.getNombre();
+								%>
+								<li id="<%=nomCat%>" class="tab-pane fade">
 
 									<div class="listview todo-list sortable">
 										<div class="block-area shortcut-area tab-content"
 											class="tab-pane">
 
 											<%
-												ControladorProducto controladorProducto = new ControladorProducto();
-												ArrayList<Producto> productos = new ArrayList<Producto>();
-												productos = controladorProducto.todosProductos();
+												controladorProducto = new ControladorProducto();
+													ArrayList<Producto> productos = new ArrayList<Producto>();
+													productos = controladorProducto.productoPorCategoria(cat.getId());
 
-												for (Producto prod : productos) {
+													for (Producto prod : productos) {
 											%>
 
-
-											<a class="shortcut tile" href=""> <img
-												src="<%=prod.getImagen()%>" alt=""> <small
-												class="t-overflow"><%=prod.getNombre()%></small>
+											<a class="shortcut tile" href=""> 
+											<img src="<%=prod.getImagen()%>" alt=""> 
+												<small class="t-overflow"><%=prod.getNombre()%></small>
 											</a>
 
 											<%
@@ -1268,6 +1285,10 @@
 									</div>
 
 								</li>
+								<%
+									}
+								%>
+
 							</ul>
 
 						</div>
@@ -1443,6 +1464,10 @@
 	</section> </section>
 
 	<!-- Javascript Libraries -->
+	
+	
+	<script src="./js/ticket.js"></script>
+	
 	<!-- jQuery -->
 	<script src="index_files/jquery.js"></script>
 	<!-- jQuery Library -->
