@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class ModeloCategoria extends Conectar {
+	
 	public ModeloCategoria() {
 		super();
 	}

@@ -934,8 +934,8 @@
 
 				<div class="row">
 					<div class="col-md-4">
-					
-					<div class="container">
+
+						<div class="container">
 							<div class="row">
 								<div class="panel panel-default">
 
@@ -969,7 +969,7 @@
 											</tr>
 											<tr>
 												<td class="col-xs-1">4</td>
-												<td class="col-xs-1">2x</td>												
+												<td class="col-xs-1">2x</td>
 												<td class="col-xs-8">Jim Adams</td>
 												<td class="col-xs-2">23</td>
 											</tr>
@@ -1026,8 +1026,8 @@
 								</div>
 							</div>
 						</div>
-					
-					
+
+
 						<div class="tile">
 							<h2 class="tile-title">Visualización ticket</h2>
 							<div class="tile-config dropdown">
@@ -1153,7 +1153,7 @@
 
 						</div>
 
-						
+
 					</div>
 
 
@@ -1180,14 +1180,10 @@
 										categorias = controladorCategoria.todasCategorias();
 
 										for (Categoria cat : categorias) {
-
-											if (cat.getImagen() == null) {
-												cat.setImagen("./img/shortcuts/money.png");
-											}
 									%>
 
-									<a class="shortcut tile" href=""> <img
-										src="<%=cat.getImagen()%>" alt=""> <small
+									<a class="shortcut tile" data-toggle="tab" href="#Desayuno">
+										<img src="<%=cat.getImagen()%>" alt=""> <small
 										class="t-overflow"><%=cat.getNombre()%></small>
 									</a>
 
@@ -1196,90 +1192,91 @@
 									%>
 
 								</div>
-
-
-
 							</div>
 
+							<!-- PRODUCTOS -->
 							<h2 class="tile-title">Productos</h2>
 
-							<div class="listview todo-list sortable">
-								<div class="block-area shortcut-area">
-									<a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">Purchases</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/twitter.png" alt=""> <small
-										class="t-overflow">Tweets</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/calendar.png" alt=""> <small
-										class="t-overflow">Calendar</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/stats.png" alt=""> <small
-										class="t-overflow">Statistics</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/connections.png" alt=""> <small
-										class="t-overflow">Connection</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/reports.png" alt=""> <small
-										class="t-overflow">Reports</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">Purchases</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">Purchases</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">Purchases</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">Purchases</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">Purchases</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">Purchases</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">Purchases</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">Purchases</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">Purchases</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">Purchases</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">Purchases</small>
-									</a>
-								</div>
+							<ul class="tab-content">
+
+								<li id="todos" class="tab-pane fade in active">
+
+									<div class="listview todo-list sortable">
+										<div class="block-area shortcut-area" class="tab-pane">
+
+											<a class="shortcut tile" href=""> <img
+												src="img/shortcuts/money.png" alt=""> <small
+												class="t-overflow">Purchases</small>
+											</a> <a class="shortcut tile" href=""> <img
+												src="img/shortcuts/money.png" alt=""> <small
+												class="t-overflow">Purchases</small>
+											</a> <a class="shortcut tile" href=""> <img
+												src="img/shortcuts/twitter.png" alt=""> <small
+												class="t-overflow">Tweets</small>
+											</a> <a class="shortcut tile" href=""> <img
+												src="img/shortcuts/calendar.png" alt=""> <small
+												class="t-overflow">Calendar</small>
+											</a> <a class="shortcut tile" href=""> <img
+												src="img/shortcuts/stats.png" alt=""> <small
+												class="t-overflow">Statistics</small>
+											</a>
+
+										</div>
+
+										<div class="media">
+											<div class="checkbox m-0">
+												<label class="t-overflow text-center"> Refrescar </label>
+											</div>
+										</div>
+									</div>
+								</li>
 
 
-								<div class="media">
-									<div class="checkbox m-0">
-										<label class="t-overflow text-center"> Refrescar 
+
+								<li id="Desayuno" class="tab-pane fade">
+
+									<div class="listview todo-list sortable">
+										<div class="block-area shortcut-area tab-content"
+											class="tab-pane">
+
+											<%
+												ControladorProducto controladorProducto = new ControladorProducto();
+												ArrayList<Producto> productos = new ArrayList<Producto>();
+												productos = controladorProducto.todosProductos();
+
+												for (Producto prod : productos) {
+											%>
+
+
+											<a class="shortcut tile" href=""> <img
+												src="<%=prod.getImagen()%>" alt=""> <small
+												class="t-overflow"><%=prod.getNombre()%></small>
+											</a>
+
+											<%
+												}
+											%>
+
+										</div>
+
+
+										<div class="media">
+											<div class="checkbox m-0">
+												<label class="t-overflow text-center"> Refrescar </label>
+											</div>
+										</div>
 									</div>
 
-								</div>
-
-
-							</div>
+								</li>
+							</ul>
 
 						</div>
-
 					</div>
-
 				</div>
-
-
 			</div>
 		</div>
 	</div>
+
 
 
 
