@@ -47,5 +47,13 @@ public class ControladorProducto {
 		
 	}
 	
+	public Producto seleccionarPorId(int idProducto){
+		Producto producto = new Producto();
+		
+		producto = modeloProducto.seleccionarPorId(idProducto);
+		
+		return producto;
+	}
+	
 	
 }

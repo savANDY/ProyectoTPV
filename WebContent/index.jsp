@@ -58,8 +58,11 @@
 
 	<%@page import="spain.vizcaya.igorre.controlador.*"%>
 	<%@page import="spain.vizcaya.igorre.modelo.*"%>
+	<%@page import="spain.vizcaya.igorre.modelo.modelo.*"%>
+	<%@page import="spain.vizcaya.igorre.modelo.clase.*"%>
 	<%@page import="java.util.ArrayList"%>
-
+	<%@page import="java.util.List"%>
+	<%@page import="java.util.Iterator"%>
 
 	<%
 		ControladorProducto controladorProducto;
@@ -187,9 +190,7 @@
 			</ul></li>
 	</ul>
 
-	</aside> <!-- Content --> <section id="content" class="container">
-
-	<!-- Notification Drawer -->
+	</aside> <!-- Content --> <section id="content" class="container"> <!-- Notification Drawer -->
 	<div id="notifications" class="tile drawer animated">
 		<div class="listview narrow">
 			<div class="media">
@@ -283,10 +284,13 @@
 
 	<!-- Shortcuts -->
 	<div class="block-area shortcut-area">
-		<a class="shortcut tile" href=""> <img src="index_files/money.png"
-			alt=""> <small class="t-overflow">Purchases</small>
-		</a> <a class="shortcut tile" href=""> <img
-			src="index_files/twitter.png" alt=""> <small class="t-overflow">Tweets</small>
+
+		<a class="shortcut tile" href="nuevaCategoria.jsp"> <img
+			src="img/botones/plus-icon.png" alt="" style=""> <small
+			class="t-overflow">Categoria</small>
+		</a> <a class="shortcut tile" href="nuevoProducto.jsp"> <img
+			src="img/botones/plus-icon.png" alt=""> <small
+			class="t-overflow">Producto</small>
 		</a> <a class="shortcut tile" href=""> <img
 			src="index_files/calendar.png" alt=""> <small
 			class="t-overflow">Calendar</small>
@@ -327,23 +331,80 @@
 											</tr>
 										</thead>
 										<tbody>
-											if (elegido==1){
+
+											<%
+												int columnas = 0;
+												List<Integer> listaElementos = (ArrayList<Integer>) session.getAttribute("misCompras");
+												Producto producto = new Producto();
+												controladorProducto = new ControladorProducto();
+
+												String borrarListaString = request.getParameter("borrarLista");
+
+												if (borrarListaString != null) {
+													int numeroPosicion = 0;
+
+													Iterator<Integer> i = listaElementos.iterator();
+													while (i.hasNext()) {
+														int s = i.next(); // must be called before you can call i.remove()
+														// Do something
+														i.remove();
+													}
+
+												}
+
+												if (listaElementos == null) {
+
+													listaElementos = new ArrayList<Integer>();
+
+													session.setAttribute("misCompras", listaElementos);
+												}
+
+												String elementosString = request.getParameter("prod");
+
+												if (elementosString != null) {
+													int elemento = Integer.parseInt(request.getParameter("prod"));
+
+													// if(listaElementos.contains(elemento)!=true){
+
+													listaElementos.add(elemento);
+												}
+												// }
+												Double precioTotal = 0.00;
+
+												for (int elem : listaElementos) {
+
+													producto = controladorProducto.seleccionarPorId(elem);
+													columnas++;
+													precioTotal = precioTotal + producto.getPrecioVenta();
+											%>
 
 											<tr>
-												<td class="col-xs-1">1</td>
+												<td id="columna<%=columnas%>" class="col-xs-1"><%=columnas%></td>
 												<td class="col-xs-1">1x</td>
-												<td class="col-xs-8">HAMBURGUESA</td>
-												<td class="col-xs-2">1.50 €</td>
+												<td class="col-xs-8"><%=producto.getNombre()%></td>
+												<td class="col-xs-2"><%=producto.getPrecioVenta()%> €</td>
 											</tr>
-											<tr>
-												<td class="col-xs-1">2</td>
-												<td class="col-xs-1">1x</td>
-												<td class="col-xs-8">Cafe Solo</td>
-												<td class="col-xs-2">1.35 €</td>
-											</tr>
+
+											<%
+												}
+											%>
 
 										</tbody>
 									</table>
+
+									<table id="tablatotal" class="table">
+										<thead>
+											<tr>
+												<th class="col-xs-10">Total productos: <%=columnas%></th>
+												<th class="col-xs-2"><b>TOTAL: <%=precioTotal%></b></th>
+											</tr>
+										</thead>
+
+									</table>
+
+									<div>
+										<a href="index.jsp?borrarLista=si">BORRAR</a>
+									</div>
 
 
 								</div>
@@ -368,6 +429,11 @@
 
 								<div class="block-area shortcut-area">
 
+									<a class="shortcut tile" href="index.jsp"> <img
+										src="./img/productos/todos.png" alt=""> <small
+										class="t-overflow">Todos</small>
+									</a>
+
 									<%
 										ControladorCategoria controladorCategoria = new ControladorCategoria();
 										ArrayList<Categoria> categorias = new ArrayList<Categoria>();
@@ -376,8 +442,9 @@
 										for (Categoria cat : categorias) {
 									%>
 
-									<a class="shortcut tile" href="index.jsp?categoria=<%=cat.getId()%>">
-										<img src="<%=cat.getImagen()%>" alt=""> <small
+									<a class="shortcut tile"
+										href="index.jsp?categoria=<%=cat.getId()%>"> <img
+										src="<%=cat.getImagen()%>" alt=""> <small
 										class="t-overflow"><%=cat.getNombre()%></small>
 									</a>
 
@@ -404,6 +471,8 @@
 										<div class="block-area shortcut-area tab-content"
 											class="tab-pane">
 
+
+
 											<%
 												controladorProducto = new ControladorProducto();
 													ArrayList<Producto> productos = new ArrayList<Producto>();
@@ -412,45 +481,9 @@
 													for (Producto prod : productos) {
 											%>
 
-											<a class="shortcut tile" href="index.jsp?categoria=<%=categoria%>&producto=<%=prod.getId()%>" id="producto-<%=prod.getId()%>">
-												<img src="<%=prod.getImagen()%>" alt=""> <small
-												class="t-overflow"><%=prod.getNombre()%></small>
-											</a>
-
-											<%
-												}
-											%>
-
-										</div>
-
-
-										<div class="media">
-											<div class="checkbox m-0">
-												<label class="t-overflow text-center"> Refrescar </label>
-											</div>
-										</div>
-									</div>
-
-								</li>
-								<%
-									} else {
-								%>
-								
-								<li id="todos" class="tab-pane fade in active">
-
-									<div class="listview todo-list sortable">
-										<div class="block-area shortcut-area" class="tab-pane">
-
-											<%
-												controladorProducto = new ControladorProducto();
-												ArrayList<Producto> todosProductos = new ArrayList<Producto>();
-												todosProductos = controladorProducto.todosProductos();
-
-												for (Producto prod : todosProductos) {
-											%>
-
-
-											<a class="shortcut tile" href=""> <img
+											<a class="shortcut tile"
+												href="index.jsp?categoria=<%=categoria%>&prod=<%=prod.getId()%>"
+												id="producto-<%=prod.getId()%>"> <img
 												src="<%=prod.getImagen()%>" alt=""> <small
 												class="t-overflow"><%=prod.getNombre()%></small>
 											</a>
@@ -461,120 +494,54 @@
 
 										</div>
 
-										<div class="media">
-											<div class="checkbox m-0">
-												<label class="t-overflow text-center"> Refrescar </label>
-											</div>
+									</div>
+
+								</li>
+								<%
+									} else {
+								%>
+
+								<li id="todos" class="tab-pane fade in active">
+
+									<div class="listview todo-list sortable">
+										<div class="block-area shortcut-area" class="tab-pane">
+
+
+
+											<%
+												controladorProducto = new ControladorProducto();
+													ArrayList<Producto> todosProductos = new ArrayList<Producto>();
+													todosProductos = controladorProducto.todosProductos();
+
+													for (Producto prod : todosProductos) {
+											%>
+
+
+											<a class="shortcut tile"
+												href="index.jsp?prod=<%=prod.getId()%>"
+												id="producto-<%=prod.getId()%>"> <img
+												src="<%=prod.getImagen()%>" alt=""> <small
+												class="t-overflow"><%=prod.getNombre()%></small>
+											</a>
+
+											<%
+												}
+											%>
+
 										</div>
+
 									</div>
 								</li>
-								
+
 								<%
-									} 
+									}
 								%>
 
 							</ul>
-
+							<h2 class="tile-title text-center">Creado por: Valeriu
+								Andrei Sanautanu</h2>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-
-	<!-- Chat -->
-	<div class="chat">
-
-		<!-- Chat List -->
-		<div class="pull-left chat-list">
-			<div class="listview narrow">
-				<div class="media">
-					<img class="pull-left" src="index_files/1.jpg" alt="" width="30">
-					<div class="media-body p-t-5">Alex Bendit</div>
-				</div>
-				<div class="media">
-					<img class="pull-left" src="index_files/2.jpg" alt="" width="30">
-					<div class="media-body">
-						<span class="t-overflow p-t-5">David Volla Watkinson</span>
-					</div>
-				</div>
-				<div class="media">
-					<img class="pull-left" src="index_files/3.jpg" alt="" width="30">
-					<div class="media-body">
-						<span class="t-overflow p-t-5">Mitchell Christein</span>
-					</div>
-				</div>
-				<div class="media">
-					<img class="pull-left" src="index_files/4.jpg" alt="" width="30">
-					<div class="media-body">
-						<span class="t-overflow p-t-5">Wayne Parnell</span>
-					</div>
-				</div>
-				<div class="media">
-					<img class="pull-left" src="index_files/5.jpg" alt="" width="30">
-					<div class="media-body">
-						<span class="t-overflow p-t-5">Melina April</span>
-					</div>
-				</div>
-				<div class="media">
-					<img class="pull-left" src="index_files/6.jpg" alt="" width="30">
-					<div class="media-body">
-						<span class="t-overflow p-t-5">Ford Harnson</span>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<!-- Chat Area -->
-		<div class="media-body">
-			<div class="chat-header">
-				<a class="btn btn-sm" href=""> <i
-					class="fa fa-circle-o status m-r-5"></i> Chat with Friends
-				</a>
-			</div>
-
-			<div class="chat-body">
-				<div class="media">
-					<img class="pull-right" src="index_files/1.jpg" alt="" width="30">
-					<div class="media-body pull-right">
-						Hiiii<br> How you doing bro? <small>Me - 10 Mins ago</small>
-					</div>
-				</div>
-
-				<div class="media pull-left">
-					<img class="pull-left" src="index_files/2.jpg" alt="" width="30">
-					<div class="media-body">
-						I'm doing well buddy. <br>How do you do? <small>David
-							- 9 Mins ago</small>
-					</div>
-				</div>
-
-				<div class="media pull-right">
-					<img class="pull-right" src="index_files/2.jpg" alt="" width="30">
-					<div class="media-body">
-						I'm Fine bro <br>Thank you for asking <small>Me - 8
-							Mins ago</small>
-					</div>
-				</div>
-
-				<div class="media pull-right">
-					<img class="pull-right" src="index_files/2.jpg" alt="" width="30">
-					<div class="media-body">
-						Any idea for a hangout? <small>Me - 8 Mins ago</small>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="chat-footer media">
-				<i class="chat-list-toggle pull-left fa fa-bars"></i> <i
-					class="pull-right fa fa-picture-o"></i>
-				<div class="media-body">
-					<textarea class="form-control" placeholder="Type something..."></textarea>
 				</div>
 			</div>
 		</div>
