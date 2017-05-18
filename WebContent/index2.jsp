@@ -54,7 +54,7 @@
 </head>
 <body id="skin-blur-violate">
 
-	<script src="./cosa/cosa.js"></script>
+<script src="./cosa/cosa.js"></script>
 
 	<%@page import="spain.vizcaya.igorre.controlador.*"%>
 	<%@page import="spain.vizcaya.igorre.modelo.*"%>
@@ -71,12 +71,12 @@
 
 	<div class="media-body">
 		<div class="media" id="top-menu">
+			
+			
 
 
 
-
-
-
+			
 
 			<div class="media-body">
 				<input class="main-search" type="text">
@@ -168,7 +168,7 @@
 			href="http://byrushan.com/projects/sa/1-0-3/index.html"> <span
 				class="menu-item">Dashboard</span>
 		</a></li>
-
+		
 		<li class="dropdown"><a class="sa-side-page" href=""> <span
 				class="menu-item">Pages</span>
 		</a>
@@ -187,7 +187,123 @@
 			</ul></li>
 	</ul>
 
-	</aside> <!-- Content --> <section id="content" class="container">
+	</aside> <!-- Content --> <section id="content" class="container"> <!-- Messages Drawer -->
+	<div id="messages" class="tile drawer animated">
+		<div class="listview narrow">
+			<div class="media">
+				<a href="">Send a New Message</a> <span class="drawer-close">×</span>
+
+			</div>
+			<div class="overflow" style="height: 254px; overflow: hidden;"
+				tabindex="5001">
+				<div class="media">
+					<div class="pull-left">
+						<img src="index_files/1.jpg" alt="" width="40">
+					</div>
+					<div class="media-body">
+						<small class="text-muted">Nadin Jackson - 2 Hours ago</small><br>
+						<a class="t-overflow" href="">Mauris consectetur urna nec
+							tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing
+							lectus</a>
+					</div>
+				</div>
+				<div class="media">
+					<div class="pull-left">
+						<img src="index_files/2.jpg" alt="" width="40">
+					</div>
+					<div class="media-body">
+						<small class="text-muted">David Villa - 5 Hours ago</small><br>
+						<a class="t-overflow" href="">Suspendisse in purus ut nibh
+							placerat Cras pulvinar euismod nunc quis gravida. Suspendisse
+							pharetra</a>
+					</div>
+				</div>
+				<div class="media">
+					<div class="pull-left">
+						<img src="index_files/3.jpg" alt="" width="40">
+					</div>
+					<div class="media-body">
+						<small class="text-muted">Harris worgon - On 15/12/2013</small><br>
+						<a class="t-overflow" href="">Maecenas venenatis enim
+							condimentum ultrices fringilla. Nulla eget libero rhoncus,
+							bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar,
+							ornare turpis id</a>
+					</div>
+				</div>
+				<div class="media">
+					<div class="pull-left">
+						<img src="index_files/4.jpg" alt="" width="40">
+					</div>
+					<div class="media-body">
+						<small class="text-muted">Mitch Bradberry - On 14/12/2013</small><br>
+						<a class="t-overflow" href="">Phasellus interdum felis enim,
+							eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci,
+							sed viverra felis aliquet quis. Curabitur vel blandit odio.
+							Vestibulum sagittis quis sem sit amet tristique.</a>
+					</div>
+				</div>
+				<div class="media">
+					<div class="pull-left">
+						<img src="index_files/1.jpg" alt="" width="40">
+					</div>
+					<div class="media-body">
+						<small class="text-muted">Nadin Jackson - On 15/12/2013</small><br>
+						<a class="t-overflow" href="">Ipsum wintoo consectetur urna
+							nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu
+							adipiscing lectus</a>
+					</div>
+				</div>
+				<div class="media">
+					<div class="pull-left">
+						<img src="index_files/2.jpg" alt="" width="40">
+					</div>
+					<div class="media-body">
+						<small class="text-muted">David Villa - On 16/12/2013</small><br>
+						<a class="t-overflow" href="">Suspendisse in purus ut nibh
+							placerat Cras pulvinar euismod nunc quis gravida. Suspendisse
+							pharetra</a>
+					</div>
+				</div>
+				<div class="media">
+					<div class="pull-left">
+						<img src="index_files/3.jpg" alt="" width="40">
+					</div>
+					<div class="media-body">
+						<small class="text-muted">Harris worgon - On 17/12/2013</small><br>
+						<a class="t-overflow" href="">Maecenas venenatis enim
+							condimentum ultrices fringilla. Nulla eget libero rhoncus,
+							bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar,
+							ornare turpis id</a>
+					</div>
+				</div>
+				<div class="media">
+					<div class="pull-left">
+						<img src="index_files/4.jpg" alt="" width="40">
+					</div>
+					<div class="media-body">
+						<small class="text-muted">Mitch Bradberry - On 18/12/2013</small><br>
+						<a class="t-overflow" href="">Phasellus interdum felis enim,
+							eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci,
+							sed viverra felis aliquet quis. Curabitur vel blandit odio.
+							Vestibulum sagittis quis sem sit amet tristique.</a>
+					</div>
+				</div>
+				<div class="media">
+					<div class="pull-left">
+						<img src="index_files/5.jpg" alt="" width="40">
+					</div>
+					<div class="media-body">
+						<small class="text-muted">Wendy Mitchell - On 19/12/2013</small><br>
+						<a class="t-overflow" href="">Integer a eros dapibus, vehicula
+							quam accumsan, tincidunt purus</a>
+					</div>
+				</div>
+			</div>
+			<div class="media text-center whiter l-100">
+				<a href=""><small>VIEW ALL</small></a>
+			</div>
+		</div>
+	</div>
 
 	<!-- Notification Drawer -->
 	<div id="notifications" class="tile drawer animated">
@@ -327,24 +443,81 @@
 											</tr>
 										</thead>
 										<tbody>
-											if (elegido==1){
-
 											<tr>
 												<td class="col-xs-1">1</td>
 												<td class="col-xs-1">1x</td>
-												<td class="col-xs-8">HAMBURGUESA</td>
-												<td class="col-xs-2">1.50 €</td>
+												<td class="col-xs-8">Mike Adams</td>
+												<td class="col-xs-2">23</td>
 											</tr>
 											<tr>
 												<td class="col-xs-1">2</td>
 												<td class="col-xs-1">1x</td>
-												<td class="col-xs-8">Cafe Solo</td>
-												<td class="col-xs-2">1.35 €</td>
+												<td class="col-xs-8">Holly Galivan</td>
+												<td class="col-xs-2">44</td>
 											</tr>
-
+											<tr>
+												<td class="col-xs-1">3</td>
+												<td class="col-xs-1">2x</td>
+												<td class="col-xs-8">Mary Shea</td>
+												<td class="col-xs-2">86</td>
+											</tr>
+											<tr>
+												<td class="col-xs-1">4</td>
+												<td class="col-xs-1">2x</td>
+												<td class="col-xs-8">Jim Adams</td>
+												<td class="col-xs-2">23</td>
+											</tr>
+											<tr>
+												<td class="col-xs-1">5</td>
+												<td class="col-xs-1">2x</td>
+												<td class="col-xs-8">Henry Galivan</td>
+												<td class="col-xs-2">44</td>
+											</tr>
+											<tr>
+												<td class="col-xs-1">6</td>
+												<td class="col-xs-1">2x</td>
+												<td class="col-xs-8">Bob Shea</td>
+												<td class="col-xs-2">26</td>
+											</tr>
+											<tr>
+												<td class="col-xs-1">7</td>
+												<td class="col-xs-1">2x</td>
+												<td class="col-xs-8">Andy Parks</td>
+												<td class="col-xs-2">56</td>
+											</tr>
+											<tr>
+												<td class="col-xs-1">8</td>
+												<td class="col-xs-1">2x</td>
+												<td class="col-xs-8">Bob Skelly</td>
+												<td class="col-xs-2">96</td>
+											</tr>
+											<tr>
+												<td class="col-xs-1">9</td>
+												<td class="col-xs-1">2x</td>
+												<td class="col-xs-8">William Defoe</td>
+												<td class="col-xs-2">13</td>
+											</tr>
+											<tr>
+												<td class="col-xs-1">10</td>
+												<td class="col-xs-1">2x</td>
+												<td class="col-xs-8">Will Tripp</td>
+												<td class="col-xs-2">16</td>
+											</tr>
+											<tr>
+												<td class="col-xs-1">11</td>
+												<td class="col-xs-1">2x</td>
+												<td class="col-xs-8">Bill Champion</td>
+												<td class="col-xs-2">44</td>
+											</tr>
+											<tr>
+												<td class="col-xs-1">12</td>
+												<td class="col-xs-1">2x</td>
+												<td class="col-xs-8">Lastly Jane</td>
+												<td class="col-xs-2">6</td>
+											</tr>
 										</tbody>
 									</table>
-
+									
 
 								</div>
 							</div>
@@ -368,6 +541,13 @@
 
 								<div class="block-area shortcut-area">
 
+
+
+									<a class="shortcut tile" data-toggle="tab" href="#todos"> <img
+										src="./img/productos/todos.png" alt=""> <small
+										class="t-overflow">Todos</small>
+									</a>
+
 									<%
 										ControladorCategoria controladorCategoria = new ControladorCategoria();
 										ArrayList<Categoria> categorias = new ArrayList<Categoria>();
@@ -376,8 +556,9 @@
 										for (Categoria cat : categorias) {
 									%>
 
-									<a class="shortcut tile" href="index.jsp?categoria=<%=cat.getId()%>">
-										<img src="<%=cat.getImagen()%>" alt=""> <small
+									<a class="shortcut tile" data-toggle="tab"
+										href="#<%=cat.getNombre()%>"> <img
+										src="<%=cat.getImagen()%>" alt=""> <small
 										class="t-overflow"><%=cat.getNombre()%></small>
 									</a>
 
@@ -393,49 +574,6 @@
 
 							<ul class="tab-content">
 
-								<%
-									String categoria = request.getParameter("categoria");
-
-									if (categoria != null) {
-								%>
-								<li id="<%=categoria%>" class="tab-pane fade in active">
-
-									<div class="listview todo-list sortable">
-										<div class="block-area shortcut-area tab-content"
-											class="tab-pane">
-
-											<%
-												controladorProducto = new ControladorProducto();
-													ArrayList<Producto> productos = new ArrayList<Producto>();
-													productos = controladorProducto.productoPorCategoria(Integer.parseInt(categoria));
-
-													for (Producto prod : productos) {
-											%>
-
-											<a class="shortcut tile" href="index.jsp?categoria=<%=categoria%>&producto=<%=prod.getId()%>" id="producto-<%=prod.getId()%>">
-												<img src="<%=prod.getImagen()%>" alt=""> <small
-												class="t-overflow"><%=prod.getNombre()%></small>
-											</a>
-
-											<%
-												}
-											%>
-
-										</div>
-
-
-										<div class="media">
-											<div class="checkbox m-0">
-												<label class="t-overflow text-center"> Refrescar </label>
-											</div>
-										</div>
-									</div>
-
-								</li>
-								<%
-									} else {
-								%>
-								
 								<li id="todos" class="tab-pane fade in active">
 
 									<div class="listview todo-list sortable">
@@ -468,9 +606,48 @@
 										</div>
 									</div>
 								</li>
-								
+
+
 								<%
-									} 
+									for (Categoria cat : categorias) {
+										String nomCat = cat.getNombre();
+								%>
+								<li id="<%=nomCat%>" class="tab-pane fade">
+
+									<div class="listview todo-list sortable">
+										<div class="block-area shortcut-area tab-content"
+											class="tab-pane">
+
+											<%
+												controladorProducto = new ControladorProducto();
+													ArrayList<Producto> productos = new ArrayList<Producto>();
+													productos = controladorProducto.productoPorCategoria(cat.getId());
+
+													for (Producto prod : productos) {
+											%>
+
+											<a class="shortcut tile" id="producto-<%=prod.getId()%>">
+												<img src="<%=prod.getImagen()%>" alt=""> <small
+												class="t-overflow"><%=prod.getNombre()%></small>
+											</a>
+
+											<%
+												}
+											%>
+
+										</div>
+
+
+										<div class="media">
+											<div class="checkbox m-0">
+												<label class="t-overflow text-center"> Refrescar </label>
+											</div>
+										</div>
+									</div>
+
+								</li>
+								<%
+									}
 								%>
 
 							</ul>

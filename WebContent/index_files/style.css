@@ -2252,7 +2252,7 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
 }
 
 .table-fixed thead {
-	width: 97%;
+	width: 100%;
 }
 
 .table-fixed tbody {
