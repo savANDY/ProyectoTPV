@@ -169,443 +169,6 @@
 			@camarero
 		</div>
 
-		<!-- Calendar -->
-		<div class="s-widget m-b-25">
-			<div id="sidebar-calendar" class="fc fc-ltr">
-				<table class="fc-header" style="width: 100%">
-					<tbody>
-						<tr>
-							<td class="fc-header-left"><span class="fc-header-title"><h2>May
-										2017</h2></span></td>
-							<td class="fc-header-center"></td>
-							<td class="fc-header-right"><span
-								class="fc-button fc-button-prev fc-state-default fc-corner-left"
-								unselectable="on" style="-moz-user-select: none;"><span
-									class="fc-text-arrow"><i class="fa fa-angle-left"></i></span></span><span
-								class="fc-button fc-button-today fc-state-default fc-state-disabled"
-								unselectable="on" style="-moz-user-select: none;">Today</span><span
-								class="fc-button fc-button-next fc-state-default fc-corner-right"
-								unselectable="on" style="-moz-user-select: none;"><span
-									class="fc-text-arrow"><i class="fa fa-angle-right"></i></span></span></td>
-						</tr>
-					</tbody>
-				</table>
-				<div class="fc-content" style="position: relative;">
-					<div class="fc-view block fc-view-month fc-grid"
-						style="position: relative; -moz-user-select: none;"
-						unselectable="on">
-						<div class="fc-event-container"
-							style="position: absolute; z-index: 8; top: 0; left: 0"></div>
-						<table class="fc-border-separate" cellspacing="0">
-							<thead>
-								<tr class="fc-first fc-last">
-									<th class="fc-day-header fc-sun fc-widget-header fc-first"
-										style="width: 26px;">Sun</th>
-									<th class="fc-day-header fc-mon fc-widget-header"
-										style="width: 26px;">Mon</th>
-									<th class="fc-day-header fc-tue fc-widget-header"
-										style="width: 26px;">Tue</th>
-									<th class="fc-day-header fc-wed fc-widget-header"
-										style="width: 26px;">Wed</th>
-									<th class="fc-day-header fc-thu fc-widget-header"
-										style="width: 26px;">Thu</th>
-									<th class="fc-day-header fc-fri fc-widget-header"
-										style="width: 26px;">Fri</th>
-									<th class="fc-day-header fc-sat fc-widget-header fc-last">Sat</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr class="fc-week fc-first">
-									<td
-										class="fc-day fc-sun fc-widget-content fc-other-month fc-past fc-first"
-										data-date="2017-04-30"><div style="min-height: 19px;">
-											<div class="fc-day-number">30</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-mon fc-widget-content fc-past"
-										data-date="2017-05-01"><div>
-											<div class="fc-day-number">1</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-tue fc-widget-content fc-past"
-										data-date="2017-05-02"><div>
-											<div class="fc-day-number">2</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-wed fc-widget-content fc-past"
-										data-date="2017-05-03"><div>
-											<div class="fc-day-number">3</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-thu fc-widget-content fc-past"
-										data-date="2017-05-04"><div>
-											<div class="fc-day-number">4</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-fri fc-widget-content fc-past"
-										data-date="2017-05-05"><div>
-											<div class="fc-day-number">5</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-sat fc-widget-content fc-past fc-last"
-										data-date="2017-05-06"><div>
-											<div class="fc-day-number">6</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-								</tr>
-								<tr class="fc-week">
-									<td class="fc-day fc-sun fc-widget-content fc-past fc-first"
-										data-date="2017-05-07"><div style="min-height: 18px;">
-											<div class="fc-day-number">7</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-mon fc-widget-content fc-past"
-										data-date="2017-05-08"><div>
-											<div class="fc-day-number">8</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-tue fc-widget-content fc-past"
-										data-date="2017-05-09"><div>
-											<div class="fc-day-number">9</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-wed fc-widget-content fc-past"
-										data-date="2017-05-10"><div>
-											<div class="fc-day-number">10</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-thu fc-widget-content fc-past"
-										data-date="2017-05-11"><div>
-											<div class="fc-day-number">11</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-fri fc-widget-content fc-past"
-										data-date="2017-05-12"><div>
-											<div class="fc-day-number">12</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-sat fc-widget-content fc-past fc-last"
-										data-date="2017-05-13"><div>
-											<div class="fc-day-number">13</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-								</tr>
-								<tr class="fc-week">
-									<td class="fc-day fc-sun fc-widget-content fc-past fc-first"
-										data-date="2017-05-14"><div style="min-height: 18px;">
-											<div class="fc-day-number">14</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-mon fc-widget-content fc-past"
-										data-date="2017-05-15"><div>
-											<div class="fc-day-number">15</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td
-										class="fc-day fc-tue fc-widget-content fc-today fc-state-highlight"
-										data-date="2017-05-16"><div>
-											<div class="fc-day-number">16</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-wed fc-widget-content fc-future"
-										data-date="2017-05-17"><div>
-											<div class="fc-day-number">17</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-thu fc-widget-content fc-future"
-										data-date="2017-05-18"><div>
-											<div class="fc-day-number">18</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-fri fc-widget-content fc-future"
-										data-date="2017-05-19"><div>
-											<div class="fc-day-number">19</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-sat fc-widget-content fc-future fc-last"
-										data-date="2017-05-20"><div>
-											<div class="fc-day-number">20</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-								</tr>
-								<tr class="fc-week">
-									<td class="fc-day fc-sun fc-widget-content fc-future fc-first"
-										data-date="2017-05-21"><div style="min-height: 18px;">
-											<div class="fc-day-number">21</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-mon fc-widget-content fc-future"
-										data-date="2017-05-22"><div>
-											<div class="fc-day-number">22</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-tue fc-widget-content fc-future"
-										data-date="2017-05-23"><div>
-											<div class="fc-day-number">23</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-wed fc-widget-content fc-future"
-										data-date="2017-05-24"><div>
-											<div class="fc-day-number">24</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-thu fc-widget-content fc-future"
-										data-date="2017-05-25"><div>
-											<div class="fc-day-number">25</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-fri fc-widget-content fc-future"
-										data-date="2017-05-26"><div>
-											<div class="fc-day-number">26</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-sat fc-widget-content fc-future fc-last"
-										data-date="2017-05-27"><div>
-											<div class="fc-day-number">27</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-								</tr>
-								<tr class="fc-week">
-									<td class="fc-day fc-sun fc-widget-content fc-future fc-first"
-										data-date="2017-05-28"><div style="min-height: 18px;">
-											<div class="fc-day-number">28</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-mon fc-widget-content fc-future"
-										data-date="2017-05-29"><div>
-											<div class="fc-day-number">29</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-tue fc-widget-content fc-future"
-										data-date="2017-05-30"><div>
-											<div class="fc-day-number">30</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td class="fc-day fc-wed fc-widget-content fc-future"
-										data-date="2017-05-31"><div>
-											<div class="fc-day-number">31</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td
-										class="fc-day fc-thu fc-widget-content fc-other-month fc-future"
-										data-date="2017-06-01"><div>
-											<div class="fc-day-number">1</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td
-										class="fc-day fc-fri fc-widget-content fc-other-month fc-future"
-										data-date="2017-06-02"><div>
-											<div class="fc-day-number">2</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td
-										class="fc-day fc-sat fc-widget-content fc-other-month fc-future fc-last"
-										data-date="2017-06-03"><div>
-											<div class="fc-day-number">3</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-								</tr>
-								<tr class="fc-week fc-last">
-									<td
-										class="fc-day fc-sun fc-widget-content fc-other-month fc-future fc-first"
-										data-date="2017-06-04"><div style="min-height: 22px;">
-											<div class="fc-day-number">4</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td
-										class="fc-day fc-mon fc-widget-content fc-other-month fc-future"
-										data-date="2017-06-05"><div>
-											<div class="fc-day-number">5</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td
-										class="fc-day fc-tue fc-widget-content fc-other-month fc-future"
-										data-date="2017-06-06"><div>
-											<div class="fc-day-number">6</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td
-										class="fc-day fc-wed fc-widget-content fc-other-month fc-future"
-										data-date="2017-06-07"><div>
-											<div class="fc-day-number">7</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td
-										class="fc-day fc-thu fc-widget-content fc-other-month fc-future"
-										data-date="2017-06-08"><div>
-											<div class="fc-day-number">8</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td
-										class="fc-day fc-fri fc-widget-content fc-other-month fc-future"
-										data-date="2017-06-09"><div>
-											<div class="fc-day-number">9</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-									<td
-										class="fc-day fc-sat fc-widget-content fc-other-month fc-future fc-last"
-										data-date="2017-06-10"><div>
-											<div class="fc-day-number">10</div>
-											<div class="fc-day-content">
-												<div style="position: relative; height: 0px;">&nbsp;</div>
-											</div>
-										</div></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Feeds -->
-		<div class="s-widget m-b-25">
-			<h2 class="tile-title">News Feeds</h2>
-
-			<div class="s-widget-body">
-				<div id="news-feed"></div>
-			</div>
-		</div>
-
-		<!-- Projects -->
-		<div class="s-widget m-b-25">
-			<h2 class="tile-title">Projects on going</h2>
-
-			<div class="s-widget-body">
-				<div class="side-border">
-					<small>Joomla Website</small>
-					<div class="progress progress-small">
-						<a href="#" data-toggle="tooltip" title=""
-							class="progress-bar tooltips progress-bar-danger"
-							style="width: 60%;" data-original-title="60%"> <span
-							class="sr-only">60% Complete</span>
-						</a>
-					</div>
-				</div>
-				<div class="side-border">
-					<small>Opencart E-Commerce Website</small>
-					<div class="progress progress-small">
-						<a href="#" data-toggle="tooltip" title=""
-							class="tooltips progress-bar progress-bar-info"
-							style="width: 43%;" data-original-title="43%"> <span
-							class="sr-only">43% Complete</span>
-						</a>
-					</div>
-				</div>
-				<div class="side-border">
-					<small>Social Media API</small>
-					<div class="progress progress-small">
-						<a href="#" data-toggle="tooltip" title=""
-							class="tooltips progress-bar progress-bar-warning"
-							style="width: 81%;" data-original-title="81%"> <span
-							class="sr-only">81% Complete</span>
-						</a>
-					</div>
-				</div>
-				<div class="side-border">
-					<small>VB.Net Software Package</small>
-					<div class="progress progress-small">
-						<a href="#" data-toggle="tooltip" title=""
-							class="tooltips progress-bar progress-bar-success"
-							style="width: 10%;" data-original-title="10%"> <span
-							class="sr-only">10% Complete</span>
-						</a>
-					</div>
-				</div>
-				<div class="side-border">
-					<small>Chrome Extension</small>
-					<div class="progress progress-small">
-						<a href="#" data-toggle="tooltip" title=""
-							class="tooltips progress-bar progress-bar-success"
-							style="width: 95%;" data-original-title="95%"> <span
-							class="sr-only">95% Complete</span>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 
 	<!-- Side Menu -->
@@ -907,7 +470,7 @@
 		<li class="active">Data</li>
 	</ol>
 
-	<h4 class="page-title">DASHBOARD</h4>
+	<h4 class="page-title">PAG. PRINCIPAL</h4>
 
 	<!-- Shortcuts -->
 	<div class="block-area shortcut-area">
@@ -946,7 +509,7 @@
 
 
 									<table id="ticket" class="table table-striped table-fixed">
-	<thead>
+										<thead>
 											<tr>
 												<th class="col-xs-1">#</th>
 												<th class="col-xs-1">x</th>
@@ -954,8 +517,8 @@
 												<th class="col-xs-2">Precio</th>
 											</tr>
 										</thead>
-                    <tbody>
-  <tr>
+										<tbody>
+											<tr>
 												<td class="col-xs-1">1</td>
 												<td class="col-xs-1">1x</td>
 												<td class="col-xs-8">Mike Adams</td>
@@ -1028,143 +591,15 @@
 												<td class="col-xs-2">6</td>
 											</tr>
 										</tbody>
-</table>
-<input type="button" name="add" value="+Add" id="addrows" style="color:#3300FF; font-size:16px; " />
-									
+									</table>
+									<input type="button" name="add" value="+Add" id="addrows"
+										style="color: #3300FF; font-size: 16px;" />
+
 								</div>
 							</div>
 						</div>
-
-
-						<div class="tile">
-							<h2 class="tile-title">Visualización ticket</h2>
-							<div class="tile-config dropdown">
-								<a data-toggle="dropdown" href="" class="tile-menu"></a>
-								<ul class="dropdown-menu animated pull-right text-right">
-									<li><a href="">Refresh</a></li>
-									<li><a href="">Settings</a></li>
-								</ul>
-							</div>
-
-							<div class="listview narrow">
-								<div class="media p-l-5">
-									<div class="pull-left">
-										<img width="40" src="img/profile-pics/1.jpg" alt="">
-									</div>
-									<div class="pull-right">
-										<div class="counts">1.35 €</div>
-									</div>
-									<div class="media-body">
-										<small class="text-muted">1x (1.35 €)</small><br /> <a
-											class="t-overflow" href="">Café con leche</a>
-
-									</div>
-								</div>
-								<div class="media p-l-5">
-									<div class="pull-left">
-										<img width="40" src="img/profile-pics/2.jpg" alt="">
-									</div>
-									<div class="pull-right">
-										<div class="counts">2.00 €</div>
-									</div>
-									<div class="media-body">
-										<small class="text-muted">2x (1 €)</small><br /> <a
-											class="t-overflow" href="">Bollo mantequilla</a>
-
-									</div>
-								</div>
-								<div class="media p-l-5">
-									<div class="pull-left">
-										<img width="40" src="img/profile-pics/3.jpg" alt="">
-									</div>
-									<div class="pull-right">
-										<div class="counts">1.35 €</div>
-									</div>
-									<div class="media-body">
-										<small class="text-muted">1x (1,35 €)</small><br /> <a
-											class="t-overflow" href="">Té rojo</a>
-
-									</div>
-								</div>
-								<div class="media p-l-5">
-									<div class="pull-left">
-										<img width="40" src="img/profile-pics/4.jpg" alt="">
-									</div>
-									<div class="pull-right">
-										<div class="counts">3.90 €</div>
-									</div>
-									<div class="media-body">
-										<small class="text-muted">3x (1,30 €)</small><br /> <a
-											class="t-overflow" href="">Pincho</a>
-
-									</div>
-								</div>
-								<div class="media p-l-5">
-									<div class="pull-left">
-										<img width="40" src="img/profile-pics/5.jpg" alt="">
-									</div>
-									<div class="pull-right">
-										<div class="counts">7.50 €</div>
-									</div>
-									<div class="media-body">
-										<small class="text-muted">5x (1.50 €)</small><br /> <a
-											class="t-overflow" href="">Vino Crianza</a>
-
-									</div>
-								</div>
-								<div class="media p-5 text-center l-100">
-									<a href=""><small>BORRAR TODOS</small></a>
-								</div>
-								<div class="media p-5 text-center l-100">
-									<a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">1</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">2</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">3</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">4</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">5</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">6</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">7</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">8</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">9</small>
-									</a> <a class="shortcut tile" href=""> <img
-										src="img/shortcuts/money.png" alt=""> <small
-										class="t-overflow">0</small>
-									</a>
-								</div>
-
-								<div class="media p-20 text-center l-100">
-									<a href=""><small>COBRAR</small></a>
-								</div>
-
-
-
-							</div>
-
-
-
-						</div>
-
 
 					</div>
-
-
 
 					<div class="col-md-8">
 						<div class="tile">
@@ -1265,9 +700,9 @@
 													for (Producto prod : productos) {
 											%>
 
-											<a class="shortcut tile" href=""> 
-											<img src="<%=prod.getImagen()%>" alt=""> 
-												<small class="t-overflow"><%=prod.getNombre()%></small>
+											<a class="shortcut tile" id="producto-<%=prod.getId()%>">
+												<img src="<%=prod.getImagen()%>" alt=""> <small
+												class="t-overflow"><%=prod.getNombre()%></small>
 											</a>
 
 											<%
@@ -1396,78 +831,14 @@
 		</div>
 	</div>
 
-	<div class="block-area">
-		<div class="row">
-			<div class="col-md-3 col-xs-6">
-				<div class="tile quick-stats">
-					<div id="stats-line-2" class="pull-left">
-						<canvas
-							style="display: inline-block; width: 250px; height: 65px; vertical-align: top;"
-							width="250" height="65"></canvas>
-					</div>
-					<div class="data">
-						<h2 data-value="98">97</h2>
-						<small>Tickets Today</small>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 col-xs-6">
-				<div class="tile quick-stats media">
-					<div id="stats-line-3" class="pull-left">
-						<canvas
-							style="display: inline-block; width: 250px; height: 65px; vertical-align: top;"
-							width="250" height="65"></canvas>
-					</div>
-					<div class="media-body">
-						<h2 data-value="1452">1,442</h2>
-						<small>Shipments today</small>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 col-xs-6">
-				<div class="tile quick-stats media">
-
-					<div id="stats-line-4" class="pull-left">
-						<canvas
-							style="display: inline-block; width: 250px; height: 65px; vertical-align: top;"
-							width="250" height="65"></canvas>
-					</div>
-
-					<div class="media-body">
-						<h2 data-value="4896">4,864</h2>
-						<small>Orders today</small>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 col-xs-6">
-				<div class="tile quick-stats media">
-					<div id="stats-line" class="pull-left">
-						<canvas
-							style="display: inline-block; width: 250px; height: 65px; vertical-align: top;"
-							width="250" height="65"></canvas>
-					</div>
-					<div class="media-body">
-						<h2 data-value="29356">29,163</h2>
-						<small>Site visits today</small>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-	</div>
-
 	<hr class="whiter">
 	</section> </section>
 
 	<!-- Javascript Libraries -->
-	
-	
+
+
 	<script src="./js/ticket.js"></script>
-	
+
 	<!-- jQuery -->
 	<script src="index_files/jquery.js"></script>
 	<!-- jQuery Library -->
