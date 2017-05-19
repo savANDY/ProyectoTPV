@@ -1,6 +1,5 @@
 package spain.vizcaya.igorre.controlador;
 
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 import spain.vizcaya.igorre.modelo.Categoria;
