@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-05-2017 a las 22:17:24
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 7.1.1
+-- Tiempo de generación: 19-05-2017 a las 11:28:26
+-- Versión del servidor: 10.1.19-MariaDB
+-- Versión de PHP: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -67,11 +67,11 @@ CREATE TABLE `producto` (
 INSERT INTO `producto` (`id`, `nombre`, `categoria`, `proveedor`, `precio_compra`, `precio_venta`, `imagen`, `color`) VALUES
 (7, 'Hamburguesa', 3, 1, 0.7, 1.5, './img/productos/hamburguesa.png', 'FFA500'),
 (8, 'Cafe Leche', 1, 1, 0.7, 1.4, './img/productos/cafeleche.png', 'FFA500'),
-(9, 'Calimocho', 4, 1, 1.3, 2.5, './img/productos/predeterminado.png', 'FFA500'),
+(9, 'Kalimotxo', 4, 1, 1.3, 2.5, './img/productos/calimocho.png', 'FFA500'),
 (11, 'Bocata Jamon Serrano', 5, 1, 2, 3.75, './img/productos/predeterminado.png', 'FFA500'),
 (12, 'De tortilla', 3, 1, 0.8, 1.3, './img/productos/predeterminado.png', 'FFA500'),
-(13, 'Cafe solo', 1, 1, 0.7, 1.3, './img/productos/predeterminado.png', 'FFA500'),
-(14, 'Bollo mantequilla', 1, 1, 0.72, 1, './img/productos/predeterminado.png', 'FFA500');
+(13, 'Cafe solo', 1, 1, 0.7, 1.3, './img/productos/cafesolo.png', 'FFA500'),
+(14, 'Bollo mantequilla', 1, 1, 0.72, 1, './img/productos/bollo.jpg', 'FFA500');
 
 -- --------------------------------------------------------
 
