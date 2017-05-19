@@ -5,15 +5,13 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="format-detection" content="telephone=no">
 <meta charset="UTF-8">
+<meta name="description" content="TPV para el bar Eguzki lcoalizado en Igorre">
+<meta name="keywords" content="TPV, BAR EGUZKI, Bootstrap">
 
-<meta name="description" content="Violate Responsive Admin Template">
-<meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
-
-<title>TPV Bar Eguzki</title>
+<title>TPV Bar Eguzki - Página Principal</title>
 
 <!-- CSS -->
 <link href="index_files/bootstrap.css" rel="stylesheet">
@@ -54,7 +52,6 @@
 </head>
 <body id="skin-blur-violate">
 
-	<script src="./cosa/cosa.js"></script>
 
 	<%@page import="spain.vizcaya.igorre.controlador.*"%>
 	<%@page import="spain.vizcaya.igorre.modelo.*"%>
@@ -63,248 +60,35 @@
 	<%@page import="java.util.ArrayList"%>
 	<%@page import="java.util.List"%>
 	<%@page import="java.util.Iterator"%>
+	<%@page import="java.text.DecimalFormat"%>
 
 	<%
 		ControladorProducto controladorProducto;
 	%>
 
-	<header id="header" class="media"> <a href="" id="menu-toggle"></a>
-	<a class="logo pull-left"
-		href="http://byrushan.com/projects/sa/1-0-3/index.html">BAR EGUZKI</a>
+<jsp:include page="contenido/header.jsp" />
+<jsp:include page="contenido/fondo.jsp" />
+<jsp:include page="contenido/menuizq.jsp" />
 
-	<div class="media-body">
-		<div class="media" id="top-menu">
+	
+	<!-- Content --> 
+	<section id="content" class="container"> <!-- Notification Drawer -->
 
-
-
-
-
-
-
-			<div class="media-body">
-				<input class="main-search" type="text">
-			</div>
-		</div>
-	</div>
-	</header>
-
-	<div class="clearfix"></div>
-
-	<section id="main" class="p-relative" role="main"> <a
-		id="settings" href="#changeSkin" data-toggle="modal"><i
-		class="fa fa-gear"></i> Change Skin</a>
-	<div class="modal fade" id="changeSkin" tabindex="-1" role="dialog"
-		aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">×</button>
-					<h4 class="modal-title">Change Template Skin</h4>
-				</div>
-				<div class="modal-body">
-					<div class="row template-skins">
-						<a data-skin="skin-blur-violate" class="col-sm-2 col-xs-4" href=""><img
-							src="index_files/skin-violate.jpg" alt=""></a><a
-							data-skin="skin-blur-lights" class="col-sm-2 col-xs-4" href=""><img
-							src="index_files/skin-lights.jpg" alt=""></a><a
-							data-skin="skin-blur-city" class="col-sm-2 col-xs-4" href=""><img
-							src="index_files/skin-city.jpg" alt=""></a><a
-							data-skin="skin-blur-greenish" class="col-sm-2 col-xs-4" href=""><img
-							src="index_files/skin-greenish.jpg" alt=""></a><a
-							data-skin="skin-blur-night" class="col-sm-2 col-xs-4" href=""><img
-							src="index_files/skin-night.jpg" alt=""></a><a
-							data-skin="skin-blur-blue" class="col-sm-2 col-xs-4" href=""><img
-							src="index_files/skin-blue.jpg" alt=""></a><a
-							data-skin="skin-blur-sunny" class="col-sm-2 col-xs-4" href=""><img
-							src="index_files/skin-sunny.jpg" alt=""></a><a
-							data-skin="skin-cloth" class="col-sm-2 col-xs-4" href=""><img
-							src="index_files/skin-cloth.jpg" alt=""></a><a
-							data-skin="skin-tectile" class="col-sm-2 col-xs-4" href=""><img
-							src="index_files/skin-tectile.jpg" alt=""></a><a
-							data-skin="skin-blur-chrome" class="col-sm-2 col-xs-4" href=""><img
-							src="index_files/skin-chrome.jpg" alt=""></a><a
-							data-skin="skin-blur-ocean" class="col-sm-2 col-xs-4" href=""><img
-							src="index_files/skin-ocean.jpg" alt=""></a><a
-							data-skin="skin-blur-sunset" class="col-sm-2 col-xs-4" href=""><img
-							src="index_files/skin-sunset.jpg" alt=""></a><a
-							data-skin="skin-blur-yellow" class="col-sm-2 col-xs-4" href=""><img
-							src="index_files/skin-yellow.jpg" alt=""></a><a
-							data-skin="skin-blur-kiwi" class="col-sm-2 col-xs-4" href=""><img
-							src="index_files/skin-kiwi.jpg" alt=""></a><a
-							data-skin="skin-blur-nexus" class="col-sm-2 col-xs-4" href=""><img
-							src="index_files/skin-nexus.jpg" alt=""></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Sidebar --> <aside id="sidebar"> <!-- Sidbar Widgets -->
-	<div class="side-widgets overflow" style="overflow: hidden;"
-		tabindex="5000">
-		<!-- Profile Menu -->
-		<div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
-			<a href="" data-toggle="dropdown"> <img
-				class="profile-pic animated" src="index_files/profile-pic.jpg"
-				alt="">
-			</a>
-			<ul class="dropdown-menu profile-menu">
-				<li><a href="">My Profile</a> <i class="icon left"></i><i
-					class="icon right"></i></li>
-				<li><a href="">Messages</a> <i class="icon left"></i><i
-					class="icon right"></i></li>
-				<li><a href="">Settings</a> <i class="icon left"></i><i
-					class="icon right"></i></li>
-				<li><a href="">Sign Out</a> <i class="icon left"></i><i
-					class="icon right"></i></li>
-			</ul>
-			<h4 class="m-0">Valeriu Andrei</h4>
-			@camarero
-		</div>
-
-	</div>
-
-	<!-- Side Menu -->
-	<ul class="list-unstyled side-menu">
-		<li class="active"><a class="sa-side-home"
-			href="http://byrushan.com/projects/sa/1-0-3/index.html"> <span
-				class="menu-item">Dashboard</span>
-		</a></li>
-
-		<li class="dropdown"><a class="sa-side-page" href=""> <span
-				class="menu-item">Pages</span>
-		</a>
-			<ul class="list-unstyled menu-item">
-				<li><a
-					href="http://byrushan.com/projects/sa/1-0-3/list-view.html">List
-						View</a></li>
-				<li><a
-					href="http://byrushan.com/projects/sa/1-0-3/profile-page.html">Profile
-						Page</a></li>
-				<li><a
-					href="http://byrushan.com/projects/sa/1-0-3/messages.html">Messages</a></li>
-				<li><a href="http://byrushan.com/projects/sa/1-0-3/login.html">Login</a></li>
-				<li><a href="http://byrushan.com/projects/sa/1-0-3/404.html">404
-						Error</a></li>
-			</ul></li>
-	</ul>
-
-	</aside> <!-- Content --> <section id="content" class="container"> <!-- Notification Drawer -->
-	<div id="notifications" class="tile drawer animated">
-		<div class="listview narrow">
-			<div class="media">
-				<a href="">Notification Settings</a> <span class="drawer-close">×</span>
-			</div>
-			<div class="overflow" style="height: 254px; overflow: hidden;"
-				tabindex="5002">
-				<div class="media">
-					<div class="pull-left">
-						<img src="index_files/1.jpg" alt="" width="40">
-					</div>
-					<div class="media-body">
-						<small class="text-muted">Nadin Jackson - 2 Hours ago</small><br>
-						<a class="t-overflow" href="">Mauris consectetur urna nec
-							tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing
-							lectus</a>
-					</div>
-				</div>
-				<div class="media">
-					<div class="pull-left">
-						<img src="index_files/2.jpg" alt="" width="40">
-					</div>
-					<div class="media-body">
-						<small class="text-muted">David Villa - 5 Hours ago</small><br>
-						<a class="t-overflow" href="">Suspendisse in purus ut nibh
-							placerat Cras pulvinar euismod nunc quis gravida. Suspendisse
-							pharetra</a>
-					</div>
-				</div>
-				<div class="media">
-					<div class="pull-left">
-						<img src="index_files/3.jpg" alt="" width="40">
-					</div>
-					<div class="media-body">
-						<small class="text-muted">Harris worgon - On 15/12/2013</small><br>
-						<a class="t-overflow" href="">Maecenas venenatis enim
-							condimentum ultrices fringilla. Nulla eget libero rhoncus,
-							bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar,
-							ornare turpis id</a>
-					</div>
-				</div>
-				<div class="media">
-					<div class="pull-left">
-						<img src="index_files/4.jpg" alt="" width="40">
-					</div>
-					<div class="media-body">
-						<small class="text-muted">Mitch Bradberry - On 14/12/2013</small><br>
-						<a class="t-overflow" href="">Phasellus interdum felis enim,
-							eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci,
-							sed viverra felis aliquet quis. Curabitur vel blandit odio.
-							Vestibulum sagittis quis sem sit amet tristique.</a>
-					</div>
-				</div>
-				<div class="media">
-					<div class="pull-left">
-						<img src="index_files/1.jpg" alt="" width="40">
-					</div>
-					<div class="media-body">
-						<small class="text-muted">Nadin Jackson - On 15/12/2013</small><br>
-						<a class="t-overflow" href="">Ipsum wintoo consectetur urna
-							nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu
-							adipiscing lectus</a>
-					</div>
-				</div>
-				<div class="media">
-					<div class="pull-left">
-						<img src="index_files/2.jpg" alt="" width="40">
-					</div>
-					<div class="media-body">
-						<small class="text-muted">David Villa - On 16/12/2013</small><br>
-						<a class="t-overflow" href="">Suspendisse in purus ut nibh
-							placerat Cras pulvinar euismod nunc quis gravida. Suspendisse
-							pharetra</a>
-					</div>
-				</div>
-			</div>
-			<div class="media text-center whiter l-100">
-				<a href=""><small>VIEW ALL</small></a>
-			</div>
-		</div>
-	</div>
 
 	<!-- Breadcrumb -->
 	<ol class="breadcrumb hidden-xs">
-		<li><a href="#">Home</a></li>
-		<li><a href="#">Library</a></li>
-		<li class="active">Data</li>
+		<li><a href="index.jsp">Principal</a></li>
+		<li class="active">TPV</li>
 	</ol>
 
 	<h4 class="page-title">PAG. PRINCIPAL</h4>
 
 	<!-- Shortcuts -->
-	<div class="block-area shortcut-area">
+	
 
-		<a class="shortcut tile" href="nuevaCategoria.jsp"> <img
-			src="img/botones/plus-icon.png" alt="" style=""> <small
-			class="t-overflow">Categoria</small>
-		</a> <a class="shortcut tile" href="nuevoProducto.jsp"> <img
-			src="img/botones/plus-icon.png" alt=""> <small
-			class="t-overflow">Producto</small>
-		</a> <a class="shortcut tile" href=""> <img
-			src="index_files/calendar.png" alt=""> <small
-			class="t-overflow">Calendar</small>
-		</a> <a class="shortcut tile" href=""> <img
-			src="index_files/stats.png" alt=""> <small class="t-overflow">Statistics</small>
-		</a> <a class="shortcut tile" href=""> <img
-			src="index_files/connections.png" alt=""> <small
-			class="t-overflow">Connection</small>
-		</a> <a class="shortcut tile" href=""> <img
-			src="index_files/reports.png" alt=""> <small class="t-overflow">Reports</small>
-		</a>
-	</div>
-
-	<hr class="whiter">
+		<jsp:include page="contenido/botonestop.jsp" />
+		
+	
 
 	<!-- Quick Stats --> <!-- Main Widgets -->
 
@@ -370,6 +154,7 @@
 												}
 												// }
 												Double precioTotal = 0.00;
+												DecimalFormat formatter = new DecimalFormat("###.00");
 
 												for (int elem : listaElementos) {
 
@@ -382,7 +167,7 @@
 												<td id="columna<%=columnas%>" class="col-xs-1"><%=columnas%></td>
 												<td class="col-xs-1">1x</td>
 												<td class="col-xs-8"><%=producto.getNombre()%></td>
-												<td class="col-xs-2"><%=producto.getPrecioVenta()%> €</td>
+												<td class="col-xs-2"><%=(formatter.format(producto.getPrecioVenta()))%>€</td>
 											</tr>
 
 											<%
@@ -395,8 +180,8 @@
 									<table id="tablatotal" class="table">
 										<thead>
 											<tr>
-												<th class="col-xs-10">Total productos: <%=columnas%></th>
-												<th class="col-xs-2"><b>TOTAL: <%=precioTotal%></b></th>
+												<th class="col-xs-9">Total productos: <%=columnas%></th>
+												<th class="col-xs-3"><b>TOTAL: <%=(formatter.format(precioTotal))%>€</b></th>
 											</tr>
 										</thead>
 
@@ -551,9 +336,6 @@
 	</section> </section>
 
 	<!-- Javascript Libraries -->
-
-
-	<script src="./js/ticket.js"></script>
 
 	<!-- jQuery -->
 	<script src="index_files/jquery.js"></script>

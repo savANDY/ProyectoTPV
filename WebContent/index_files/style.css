@@ -2256,9 +2256,10 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
 }
 
 .table-fixed tbody {
-	height: 230px;
+	height: 262px;
 	overflow-y: auto;
 	width: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td,
