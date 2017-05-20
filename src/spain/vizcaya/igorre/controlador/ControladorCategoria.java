@@ -14,9 +14,9 @@ public class ControladorCategoria {
 		modeloCategoria = new ModeloCategoria();
 	}
 
-	public ArrayList<Categoria> todasCategorias() throws Exception {
+	public ArrayList<Categoria> todasCategorias() {
 
-		ArrayList<Categoria> categorias;
+		ArrayList<Categoria> categorias = new ArrayList<Categoria>();
 
 		try {
 
@@ -24,10 +24,12 @@ public class ControladorCategoria {
 			return categorias;
 
 		} catch (Exception e) {
-			throw e;
+			System.out.println("No se han podido recuperar las categorias de la BBDD" + e.getMessage());
 			// e.printStackTrace();
 			// e.getMessage();
+			return categorias;
 		}
+		
 	}
 
 }

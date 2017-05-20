@@ -10,21 +10,18 @@ public class ModeloProducto extends Conectar {
 		super();
 	}
 
-	public ArrayList<Producto> seleccionarTodos() throws Exception {
+	public ArrayList<Producto> seleccionarTodos(){
 
 
 		PreparedStatement pst;
 		Producto producto;
+		ArrayList<Producto> productos = new ArrayList<Producto>();
 
 		try {
 			pst = cn.prepareStatement("select * from producto");
 
 			ResultSet rs = pst.executeQuery();// ejecuta
-
-			// pasar de ResultSet a ArrayList
-
-			ArrayList<Producto> productos = new ArrayList<Producto>();
-			
+		
 			while (rs.next()) {
 				producto = new Producto();
 				producto.setId(Integer.parseInt(rs.getString(1)));
@@ -41,7 +38,8 @@ public class ModeloProducto extends Conectar {
 			return productos;
 
 		} catch (Exception e) {
-			throw e;
+			System.out.println("No se han podido recuperar los productos de la BBDD");
+			return productos;
 		}
 
 	}

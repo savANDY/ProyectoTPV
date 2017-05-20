@@ -15,8 +15,8 @@ public class Conectar {
 			String url = "jdbc:mysql://localhost/tpv";
 			cn = (Connection) DriverManager.getConnection(url, "root", "");
 		} catch (Exception e) {
-			e.printStackTrace();
-
+			System.out.println("No se ha podido conectar a la base de datos" + e.getMessage());
+			//e.printStackTrace();
 		}
 	}
 }

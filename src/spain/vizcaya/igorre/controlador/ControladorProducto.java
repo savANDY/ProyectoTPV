@@ -30,9 +30,9 @@ public class ControladorProducto {
 			// e.getMessage();
 		}
 	}
-	public ArrayList<Producto> productoPorCategoria(int idCategoria) throws Exception {
+	public ArrayList<Producto> productoPorCategoria(int idCategoria) {
 		
-		ArrayList<Producto> productos;
+		ArrayList<Producto> productos = new ArrayList<Producto>();
 
 		try {
 
@@ -40,9 +40,10 @@ public class ControladorProducto {
 			return productos;
 
 		} catch (Exception e) {
-			throw e;
+			System.out.println("No se han podido recuperar los productos de la BBDD" + e.getMessage());
 			// e.printStackTrace();
 			// e.getMessage();
+			return productos;
 		}
 		
 	}
