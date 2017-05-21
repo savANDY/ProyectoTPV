@@ -15,13 +15,10 @@
 
 <!-- CSS -->
 <link href="index_files/bootstrap.css" rel="stylesheet">
-<link href="index_files/animate.css" rel="stylesheet">
-<link href="index_files/font-awesome.css" rel="stylesheet">
 <link href="index_files/form.css" rel="stylesheet">
 <link href="index_files/calendar.css" rel="stylesheet">
-<link href="index_files/style.css" rel="stylesheet">
 <link href="index_files/icons.css" rel="stylesheet">
-<link href="index_files/generics.css" rel="stylesheet">
+<link href="index_files/style.css" rel="stylesheet">
 <style type="text/css">
 .jqstooltip {
 	position: absolute;
@@ -333,96 +330,13 @@
 	</div>
 
 	<hr class="whiter">
-	</section> </section>
 
-	<!-- Javascript Libraries -->
-
-	<!-- jQuery -->
+	<!-- Javascript -->
 	<script src="index_files/jquery.js"></script>
-	<!-- jQuery Library -->
 	<script src="index_files/jquery-ui.js"></script>
-	<!-- jQuery UI -->
 	<script src="index_files/jquery_003.js"></script>
-	<!-- jQuery Easing - Requirred for Lightbox + Pie Charts-->
-
-	<!-- Bootstrap -->
 	<script src="index_files/bootstrap.js"></script>
-
-	<!-- Charts -->
-	<script src="index_files/jquery_005.js"></script>
-	<!-- Flot Main -->
-	<script src="index_files/jquery_004.js"></script>
-	<!-- Flot sub -->
-	<script src="index_files/jquery_006.js"></script>
-	<!-- Flot sub -->
-	<script src="index_files/jquery_002.js"></script>
-	<!-- Flot sub - for repaint when resizing the screen -->
-
-	<script src="index_files/sparkline.js"></script>
-	<!-- Sparkline - Tiny charts -->
-	<script src="index_files/easypiechart.js"></script>
-	<!-- EasyPieChart - Animated Pie Charts -->
-	<script src="index_files/charts.js"></script>
-	<!-- All the above chart related functions -->
-
-	<!-- Map -->
-	<script src="index_files/jvectormap.js"></script>
-	<!-- jVectorMap main library -->
-	<script src="index_files/usa.js"></script>
-	<!-- USA Map for jVectorMap -->
-
-	<!--  Form Related -->
-	<script src="index_files/icheck.js"></script>
-	<!-- Custom Checkbox + Radio -->
-
-	<!-- UX -->
-	<script src="index_files/scroll.js"></script>
-	<!-- Custom Scrollbar -->
-
-	<!-- Other -->
-	<script src="index_files/calendar.js"></script>
-	<!-- Calendar -->
-	<script src="index_files/feeds.js"></script>
-	<!-- News Feeds -->
-
-
-	<!-- All JS functions -->
 	<script src="index_files/functions.js"></script>
 
-
-	<div id="linechart-tooltip" class="chart-tooltip"
-		style="display: none;"></div>
-	<div id="dynamic-chart-tooltip" class="chart-tooltip"></div>
-	<div class="jvectormap-label"></div>
-	<div id="ascrail2000" class="nicescroll-rails"
-		style="width: 6px; z-index: auto; cursor: default; position: absolute; top: 50px; left: 227px; height: 1124px; display: none; opacity: 0;">
-		<div
-			style="position: relative; top: 0px; float: right; width: 6px; height: 0px; background-color: rgba(0, 0, 0, 0.7); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000-hr" class="nicescroll-rails"
-		style="height: 6px; z-index: auto; top: 1168px; left: 45px; position: absolute; cursor: default; display: none; opacity: 0;">
-		<div
-			style="position: relative; top: 0px; height: 6px; width: 0px; background-color: rgba(0, 0, 0, 0.7); background-clip: padding-box; left: 0px;"></div>
-	</div>
-	<div id="ascrail2001" class="nicescroll-rails"
-		style="width: 6px; z-index: auto; cursor: default; position: absolute; top: 0px; left: -6px; height: 254px; display: none;">
-		<div
-			style="position: relative; top: 0px; float: right; width: 6px; height: 0px; background-color: rgba(0, 0, 0, 0.7); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001-hr" class="nicescroll-rails"
-		style="height: 6px; z-index: auto; top: 248px; left: 0px; position: absolute; cursor: default; display: none;">
-		<div
-			style="position: relative; top: 0px; height: 6px; width: 0px; background-color: rgba(0, 0, 0, 0.7); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2002" class="nicescroll-rails"
-		style="width: 6px; z-index: auto; cursor: default; position: absolute; top: 0px; left: -6px; height: 254px; display: none;">
-		<div
-			style="position: relative; top: 0px; float: right; width: 6px; height: 0px; background-color: rgba(0, 0, 0, 0.7); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2002-hr" class="nicescroll-rails"
-		style="height: 6px; z-index: auto; top: 248px; left: 0px; position: absolute; cursor: default; display: none;">
-		<div
-			style="position: relative; top: 0px; height: 6px; width: 0px; background-color: rgba(0, 0, 0, 0.7); background-clip: padding-box;"></div>
-	</div>
 </body>
 </html>
