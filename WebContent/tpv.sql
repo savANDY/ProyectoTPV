@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-05-2017 a las 11:28:26
--- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 5.6.28
+-- Tiempo de generación: 22-05-2017 a las 21:57:10
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -46,6 +46,26 @@ INSERT INTO `categoria` (`id`, `nombre`, `imagen`, `color`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `iva`
+--
+
+CREATE TABLE `iva` (
+  `id` int(3) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `cantidad` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `iva`
+--
+
+INSERT INTO `iva` (`id`, `nombre`, `cantidad`) VALUES
+(1, '10 %', 10),
+(2, '21 %', 21);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `producto`
 --
 
@@ -56,6 +76,7 @@ CREATE TABLE `producto` (
   `proveedor` int(3) NOT NULL DEFAULT '1',
   `precio_compra` double NOT NULL,
   `precio_venta` double NOT NULL,
+  `iva` int(3) NOT NULL,
   `imagen` varchar(50) DEFAULT './img/productos/predeterminado.png',
   `color` varchar(6) DEFAULT 'FFA500'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
@@ -64,14 +85,14 @@ CREATE TABLE `producto` (
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`id`, `nombre`, `categoria`, `proveedor`, `precio_compra`, `precio_venta`, `imagen`, `color`) VALUES
-(7, 'Hamburguesa', 3, 1, 0.7, 1.5, './img/productos/hamburguesa.png', 'FFA500'),
-(8, 'Cafe Leche', 1, 1, 0.7, 1.4, './img/productos/cafeleche.png', 'FFA500'),
-(9, 'Kalimotxo', 4, 1, 1.3, 2.5, './img/productos/calimocho.png', 'FFA500'),
-(11, 'Bocata Jamon Serrano', 5, 1, 2, 3.75, './img/productos/predeterminado.png', 'FFA500'),
-(12, 'De tortilla', 3, 1, 0.8, 1.3, './img/productos/predeterminado.png', 'FFA500'),
-(13, 'Cafe solo', 1, 1, 0.7, 1.3, './img/productos/cafesolo.png', 'FFA500'),
-(14, 'Bollo mantequilla', 1, 1, 0.72, 1, './img/productos/bollo.jpg', 'FFA500');
+INSERT INTO `producto` (`id`, `nombre`, `categoria`, `proveedor`, `precio_compra`, `precio_venta`, `iva`, `imagen`, `color`) VALUES
+(7, 'Hamburguesa', 3, 1, 0.7, 1.5, 1, './img/productos/hamburguesa.png', 'FFA500'),
+(8, 'Cafe Leche', 1, 1, 0.7, 1.4, 1, './img/productos/cafeleche.png', 'FFA500'),
+(9, 'Kalimotxo', 4, 2, 1.3, 2.5, 2, './img/productos/calimocho.png', 'FFA500'),
+(11, 'Bocata Jamon Serrano', 5, 1, 2, 3.75, 1, './img/productos/predeterminado.png', 'FFA500'),
+(12, 'De tortilla', 3, 1, 0.8, 1.3, 1, './img/productos/pinchotortilla.jpg', 'FFA500'),
+(13, 'Cafe solo', 1, 1, 0.7, 1.3, 1, './img/productos/cafesolo.png', 'FFA500'),
+(14, 'Bollo mantequilla', 1, 1, 0.72, 1, 1, './img/productos/bollo.png', 'FFA500');
 
 -- --------------------------------------------------------
 
@@ -83,7 +104,7 @@ CREATE TABLE `proveedor` (
   `id` int(3) NOT NULL,
   `nombre` varchar(20) NOT NULL,
   `direccion` varchar(50) DEFAULT NULL,
-  `otros_datos` int(11) DEFAULT NULL
+  `otros_datos` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -91,7 +112,8 @@ CREATE TABLE `proveedor` (
 --
 
 INSERT INTO `proveedor` (`id`, `nombre`, `direccion`, `otros_datos`) VALUES
-(1, 'No Asignado', NULL, NULL);
+(1, 'No Asignado', NULL, NULL),
+(2, 'Beer & Edariak', 'Pol. Ind. Mendieta, S/N. 48330. Lemoa, BIZKAIA', NULL);
 
 -- --------------------------------------------------------
 
@@ -105,6 +127,27 @@ CREATE TABLE `ticket` (
   `fecha_venta` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(3) NOT NULL,
+  `contraseña` varchar(20) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `apellidos` varchar(30) NOT NULL,
+  `administrador` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `contraseña`, `nombre`, `apellidos`, `administrador`) VALUES
+(2, '1234', 'Valeriu Andrei', 'Sanautanu', 1);
+
 --
 -- Índices para tablas volcadas
 --
@@ -116,12 +159,19 @@ ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `iva`
+--
+ALTER TABLE `iva`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`id`),
   ADD KEY `proveedor` (`proveedor`),
-  ADD KEY `categoria` (`categoria`);
+  ADD KEY `categoria` (`categoria`),
+  ADD KEY `iva` (`iva`);
 
 --
 -- Indices de la tabla `proveedor`
@@ -136,6 +186,12 @@ ALTER TABLE `ticket`
   ADD PRIMARY KEY (`id`,`id_producto`);
 
 --
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -145,6 +201,11 @@ ALTER TABLE `ticket`
 ALTER TABLE `categoria`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
+-- AUTO_INCREMENT de la tabla `iva`
+--
+ALTER TABLE `iva`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
@@ -153,7 +214,12 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Restricciones para tablas volcadas
 --
@@ -163,7 +229,8 @@ ALTER TABLE `proveedor`
 --
 ALTER TABLE `producto`
   ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`categoria`) REFERENCES `categoria` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`proveedor`) REFERENCES `proveedor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`proveedor`) REFERENCES `proveedor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `producto_ibfk_3` FOREIGN KEY (`iva`) REFERENCES `iva` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
