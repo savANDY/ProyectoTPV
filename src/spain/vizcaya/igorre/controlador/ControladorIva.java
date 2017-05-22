@@ -1,8 +1,8 @@
 package spain.vizcaya.igorre.controlador;
 
-import spain.vizcaya.igorre.modelo.ModeloProducto;
 import spain.vizcaya.igorre.modelo.clase.Iva;
 import spain.vizcaya.igorre.modelo.modelo.ModeloIva;
+import spain.vizcaya.igorre.modelo.modelo.ModeloProducto;
 
 public class ControladorIva {
 	

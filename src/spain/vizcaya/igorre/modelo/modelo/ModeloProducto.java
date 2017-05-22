@@ -1,8 +1,11 @@
-package spain.vizcaya.igorre.modelo;
+package spain.vizcaya.igorre.modelo.modelo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+
+import spain.vizcaya.igorre.modelo.Conectar;
+import spain.vizcaya.igorre.modelo.clase.Producto;
 
 public class ModeloProducto extends Conectar {
 

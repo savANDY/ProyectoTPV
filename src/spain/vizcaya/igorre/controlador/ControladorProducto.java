@@ -2,9 +2,8 @@ package spain.vizcaya.igorre.controlador;
 
 import java.util.ArrayList;
 
-
-import spain.vizcaya.igorre.modelo.ModeloProducto;
-import spain.vizcaya.igorre.modelo.Producto;
+import spain.vizcaya.igorre.modelo.clase.Producto;
+import spain.vizcaya.igorre.modelo.modelo.ModeloProducto;
 
 public class ControladorProducto {
 

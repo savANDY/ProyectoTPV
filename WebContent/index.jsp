@@ -51,7 +51,7 @@
 
 
 	<%@page import="spain.vizcaya.igorre.controlador.*"%>
-	<%@page import="spain.vizcaya.igorre.modelo.*"%>
+	<%@page import="spain.vizcaya.igorre.modelo.Conectar"%>
 	<%@page import="spain.vizcaya.igorre.modelo.modelo.*"%>
 	<%@page import="spain.vizcaya.igorre.modelo.clase.*"%>
 	<%@page import="java.util.ArrayList"%>
@@ -68,11 +68,11 @@
 <jsp:include page="contenido/menuizq.jsp" />
 
 	
-	<!-- Content --> 
+	<!-- Contenido --> 
 	<section id="content" class="container"> <!-- Notification Drawer -->
 
 
-	<!-- Breadcrumb -->
+	<!-- Navegacion -->
 	<ol class="breadcrumb hidden-xs">
 		<li><a href="index.jsp">Principal</a></li>
 		<li class="active">TPV</li>
@@ -80,15 +80,11 @@
 
 	<h4 class="page-title">PAG. PRINCIPAL</h4>
 
-	<!-- Shortcuts -->
+	<!-- Botones -->
 	
 
 		<jsp:include page="contenido/botonestop.jsp" />
 		
-	
-
-	<!-- Quick Stats --> <!-- Main Widgets -->
-
 	<div class="block-area">
 		<div class="row">
 			<div class="col-md-12">

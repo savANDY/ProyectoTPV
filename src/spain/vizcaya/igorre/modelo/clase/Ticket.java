@@ -3,8 +3,6 @@ package spain.vizcaya.igorre.modelo.clase;
 import java.sql.Date;
 import java.util.ArrayList;
 
-import spain.vizcaya.igorre.modelo.Producto;
-
 public class Ticket {
 
 	int id;
