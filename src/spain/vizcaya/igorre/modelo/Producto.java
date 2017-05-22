@@ -8,6 +8,7 @@ public class Producto {
 	private int proveedor;
 	private double precioCompra;
 	private double precioVenta;
+	private int iva;
 	private String imagen;
 	private String color;
 	
@@ -47,6 +48,12 @@ public class Producto {
 	}
 	public void setPrecioVenta(double precioVenta) {
 		this.precioVenta = precioVenta;
+	}	
+	public int getIva() {
+		return iva;
+	}
+	public void setIva(int iva) {
+		this.iva = iva;
 	}
 	public String getImagen() {
 		return imagen;
@@ -63,7 +70,7 @@ public class Producto {
 	
 	// Constructores
 	public Producto(int id, String nombre, int categoria, int proveedor, double precioCompra, double precioVenta,
-			String imagen, String color) {
+			int iva, String imagen, String color) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -71,13 +78,11 @@ public class Producto {
 		this.proveedor = proveedor;
 		this.precioCompra = precioCompra;
 		this.precioVenta = precioVenta;
+		this.iva = iva;
 		this.imagen = imagen;
 		this.color = color;
 	}
 	public Producto() {
 		super();
 	}
-	
-	
-	
 }

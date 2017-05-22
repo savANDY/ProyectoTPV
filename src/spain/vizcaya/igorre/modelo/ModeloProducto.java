@@ -10,8 +10,7 @@ public class ModeloProducto extends Conectar {
 		super();
 	}
 
-	public ArrayList<Producto> seleccionarTodos(){
-
+	public ArrayList<Producto> seleccionarTodos() {
 
 		PreparedStatement pst;
 		Producto producto;
@@ -21,7 +20,7 @@ public class ModeloProducto extends Conectar {
 			pst = cn.prepareStatement("select * from producto");
 
 			ResultSet rs = pst.executeQuery();// ejecuta
-		
+
 			while (rs.next()) {
 				producto = new Producto();
 				producto.setId(Integer.parseInt(rs.getString(1)));
@@ -30,8 +29,9 @@ public class ModeloProducto extends Conectar {
 				producto.setProveedor(Integer.parseInt(rs.getString(4)));
 				producto.setPrecioCompra(Double.parseDouble(rs.getString(5)));
 				producto.setPrecioVenta(Double.parseDouble(rs.getString(6)));
-				producto.setImagen(rs.getString(7));
-				producto.setColor(rs.getString(8));
+				producto.setIva(rs.getInt(7));
+				producto.setImagen(rs.getString(8));
+				producto.setColor(rs.getString(9));
 
 				productos.add(producto);
 			}
@@ -44,6 +44,41 @@ public class ModeloProducto extends Conectar {
 
 	}
 
+//	public ArrayList<Producto> seleccionarTodosDetallados() {
+//
+//		PreparedStatement pst;
+//		Producto producto;
+//		ArrayList<Producto> productos = new ArrayList<Producto>();
+//
+//		try {
+//			pst = cn.prepareStatement(
+//					"select p.id,p.nombre,c.nombre categoria,prv.nombre proveedor,p.precio_compra,p.precio_venta, i.nombre iva from producto p, categoria c, proveedor prv, iva i WHERE (p.categoria=c.id) AND (p.iva=i.id) AND (p.proveedor=prv.id)");
+//
+//			ResultSet rs = pst.executeQuery();// ejecuta
+//
+//			while (rs.next()) {
+//				producto = new Producto();
+//				producto.setId(Integer.parseInt(rs.getString(1)));
+//				producto.setNombre(rs.getString(2));
+//				producto.setCategoria(Integer.parseInt(rs.getString(3)));
+//				producto.setProveedor(Integer.parseInt(rs.getString(4)));
+//				producto.setPrecioCompra(Double.parseDouble(rs.getString(5)));
+//				producto.setPrecioVenta(Double.parseDouble(rs.getString(6)));
+//				producto.setIva(rs.getInt(7));
+//				producto.setImagen(rs.getString(8));
+//				producto.setColor(rs.getString(9));
+//
+//				productos.add(producto);
+//			}
+//			return productos;
+//
+//		} catch (Exception e) {
+//			System.out.println("No se han podido recuperar los productos de la BBDD");
+//			return productos;
+//		}
+//
+//	}
+
 	public ArrayList<Producto> seleccionarPorCategoria(int idCategoria) {
 		PreparedStatement ps;
 		Producto producto;
@@ -52,7 +87,7 @@ public class ModeloProducto extends Conectar {
 			ps.setInt(1, idCategoria);
 
 			ResultSet rs = ps.executeQuery();
-			
+
 			ArrayList<Producto> productos = new ArrayList<Producto>();
 
 			while (rs.next()) {
@@ -65,9 +100,9 @@ public class ModeloProducto extends Conectar {
 				producto.setPrecioVenta(Double.parseDouble(rs.getString(6)));
 				producto.setImagen(rs.getString(7));
 				producto.setColor(rs.getString(8));
-				
+
 				productos.add(producto);
-				
+
 			}
 			return productos;
 		} catch (Exception e) {
@@ -77,11 +112,9 @@ public class ModeloProducto extends Conectar {
 
 		return null;
 	}
-	
-	public Producto seleccionarPorId(int idProducto){
-		
-		
-		
+
+	public Producto seleccionarPorId(int idProducto) {
+
 		PreparedStatement ps;
 		Producto producto;
 		try {
@@ -108,7 +141,7 @@ public class ModeloProducto extends Conectar {
 		}
 
 		return null;
-		
+
 	}
 
 }

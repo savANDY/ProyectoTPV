@@ -31,5 +31,15 @@ public class ControladorCategoria {
 		}
 		
 	}
+	
+	public String seleccionarNombrePorId(int idCategoria){
+		String nombreCat = "";
+		try {
+			nombreCat = modeloCategoria.seleccionarNombrePorId(idCategoria);
+		} catch (Exception e) {
+			System.out.println("Error al seleccionar nombre de la categoria");
+		}
+		return nombreCat;
+	}
 
 }

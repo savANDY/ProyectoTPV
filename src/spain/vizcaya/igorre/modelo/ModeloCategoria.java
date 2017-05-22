@@ -43,4 +43,29 @@ public class ModeloCategoria extends Conectar {
 
 	}
 
+	public String seleccionarNombrePorId(int idCategoria) throws Exception {
+		
+PreparedStatement ps;
+String nombreCat = "";
+		try {
+			ps = cn.prepareStatement("SELECT nombre FROM categoria WHERE id = ?");
+			ps.setInt(1, idCategoria);
+
+//			System.out.println(ps);
+			
+			ResultSet rs = ps.executeQuery();
+
+			
+			if (rs.next()) {
+				nombreCat = rs.getString("nombre");
+				return nombreCat;
+			}
+		} catch (Exception e) {
+			System.out.println("Error al seleccionar cantidad del iva");
+			throw(e);
+		}
+		
+		return nombreCat;
+	}
+
 }
