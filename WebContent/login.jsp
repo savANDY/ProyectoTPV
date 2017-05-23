@@ -64,6 +64,7 @@
 
 	<%
 		ControladorUsuario controladorUsuario;
+		controladorUsuario = new ControladorUsuario();
 	%>
 	<jsp:include page="contenido/fondo.jsp" />
 
@@ -79,30 +80,76 @@
 	<div class="clearfix"></div>
 
 	<%
-		String contrasenia = request.getParameter("Password");
+		String logOutString = request.getParameter("logOut");
+		
+		
+		
+		
+		Usuario usuarioLogueado = null;
+		usuarioLogueado = (Usuario)session.getAttribute("Login");
+		
+		if (usuarioLogueado != null){
+			%>
+			<h2 class="m-t-0 m-b-15">
+				Estás logueado como "<%
+				out.println(usuarioLogueado.getNombre());
+			%>"
+			</h2>
+			<%
+				} else {
+			%> <!-- Login -->
+			<form action="login.jsp" method="get" class="box tile animated active"
+				id="box-login">
+				<h2 class="m-t-0 m-b-15">Contraseña</h2>
+				<input name="Password" type="password" class="login-control"
+					placeholder="Password">
+				<div class="checkbox m-b-20"></div>
+				<button class="btn btn-sm m-r-5">Loguearse</button>
+				<small><a class="box-switcher" data-switch="box-reset" href="">Contraseña
+						olvidada?</a> </small>
+			</form>
+			<%
+				}
+			
+	
+		
+		String contrasenia = null;
+		contrasenia = request.getParameter("Password");
 
 		if (contrasenia != null) {
 
-			controladorUsuario.comprobarPassword(contrasenia);
 			Usuario usuario = new Usuario();
+			if (controladorUsuario.comprobarPassword(contrasenia) != null) {
+				usuario = controladorUsuario.comprobarPassword(contrasenia);
+
+				out.println(usuario.getNombre());
+			}
+
+			if (usuario.getNombre() != null) {
+				out.println("Contraseña encontrada" + usuario.getNombre());
+			} else {
+				out.println("Contraseña no encontrada");
+			}
+			out.println("He salido del if");
+
+			if (String.valueOf(usuario.getContrasenia()).equals(String.valueOf(contrasenia))) {
+
+				session.setAttribute("Login", usuario);
+				usuarioLogueado = (Usuario) session.getAttribute("Login");
+
+			}
 
 		}
-	%> <!-- Login -->
-	<form action="login.jsp" method="get" class="box tile animated active"
-		id="box-login">
-		<h2 class="m-t-0 m-b-15">Contraseña</h2>
-		<input type="password" class="login-control" placeholder="Password">
-		<div class="checkbox m-b-20"></div>
-		<button class="btn btn-sm m-r-5">Loguearse</button>
-		<small><a class="box-switcher" data-switch="box-reset" href="">Contraseña
-				olvidada?</a> </small>
-	</form>
-	</section>
-
-
+		if (String.valueOf(logOutString).equals("Si")) {
+			out.println("Dentro del logout");
+			session.invalidate();
+		}
+%>
 
 	<hr class="whiter">
-	</section>
+	<a href="index.jsp" class="btn btn-default" role="button">Página
+		Principal</a> <a href="login.jsp?logOut=Si" class="btn btn-default"
+		role="button">Salir</a> </section>
 	<!-- Javascript -->
 	<script src="index_files/jquery.js"></script>
 	<script src="index_files/jquery-ui.js"></script>

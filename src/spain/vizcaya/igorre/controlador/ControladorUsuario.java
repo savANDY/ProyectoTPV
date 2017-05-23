@@ -6,15 +6,22 @@ import spain.vizcaya.igorre.modelo.modelo.ModeloUsuario;
 public class ControladorUsuario {
 	
 	ModeloUsuario modeloUsuario;
+	
+	public ControladorUsuario() {
+		super();
+		modeloUsuario = new ModeloUsuario();
+	}
 
 	public Usuario comprobarPassword(String pass){
 		
 		Usuario usuario = new Usuario();
 		
-		modeloUsuario.comprobarPass(pass);
-		
-		return usuario;
-		
+		try {
+			usuario = modeloUsuario.loguearse(pass);
+			return usuario;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
-	
 }
