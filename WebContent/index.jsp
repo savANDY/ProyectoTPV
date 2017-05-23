@@ -5,10 +5,12 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="format-detection" content="telephone=no">
 <meta charset="UTF-8">
-<meta name="description" content="TPV para el bar Eguzki lcoalizado en Igorre">
+<meta name="description"
+	content="TPV para el bar Eguzki lcoalizado en Igorre">
 <meta name="keywords" content="TPV, BAR EGUZKI, Bootstrap">
 
 <title>TPV Bar Eguzki - Página Principal</title>
@@ -62,28 +64,29 @@
 		ControladorProducto controladorProducto;
 	%>
 
-<jsp:include page="contenido/header.jsp" />
-<jsp:include page="contenido/fondo.jsp" />
-<jsp:include page="contenido/menuizq.jsp" />
-
-	
-	<!-- Contenido --> 
-	<section id="content" class="container"> <!-- Notification Drawer -->
 
 
-	<!-- Navegacion -->
+	<jsp:include page="contenido/header.jsp" />
+
+	<%
+		Usuario usuarioLogueado = null;
+		usuarioLogueado = (Usuario) session.getAttribute("Login");
+		if (usuarioLogueado != null) {
+	%>
+
+	<jsp:include page="contenido/fondo.jsp" />
+	<jsp:include page="contenido/menuizq.jsp" />
+
+
+	<!-- Contenido -->
+	<section id="content" class="container"> <!-- Navegacion -->
 	<ol class="breadcrumb hidden-xs">
 		<li><a href="index.jsp">Principal</a></li>
 		<li class="active">TPV</li>
 	</ol>
 
 	<h4 class="page-title">PAG. PRINCIPAL</h4>
-
-	<!-- Botones -->
-	
-
-		<jsp:include page="contenido/botonestop.jsp" />
-		
+	<!-- Botones --> <jsp:include page="contenido/botonestop.jsp" />
 	<div class="block-area">
 		<div class="row">
 			<div class="col-md-12">
@@ -110,49 +113,49 @@
 
 											<%
 												int columnas = 0;
-												List<Integer> listaElementos = (ArrayList<Integer>) session.getAttribute("misCompras");
-												Producto producto = new Producto();
-												controladorProducto = new ControladorProducto();
+													List<Integer> listaElementos = (ArrayList<Integer>) session.getAttribute("misCompras");
+													Producto producto = new Producto();
+													controladorProducto = new ControladorProducto();
 
-												String borrarListaString = request.getParameter("borrarLista");
+													String borrarListaString = request.getParameter("borrarLista");
 
-												if (borrarListaString != null) {
-													int numeroPosicion = 0;
+													if (borrarListaString != null) {
+														int numeroPosicion = 0;
 
-													Iterator<Integer> i = listaElementos.iterator();
-													while (i.hasNext()) {
-														int s = i.next(); // must be called before you can call i.remove()
-														// Do something
-														i.remove();
+														Iterator<Integer> i = listaElementos.iterator();
+														while (i.hasNext()) {
+															int s = i.next(); // must be called before you can call i.remove()
+															// Do something
+															i.remove();
+														}
+
 													}
 
-												}
+													if (listaElementos == null) {
 
-												if (listaElementos == null) {
+														listaElementos = new ArrayList<Integer>();
 
-													listaElementos = new ArrayList<Integer>();
+														session.setAttribute("misCompras", listaElementos);
+													}
 
-													session.setAttribute("misCompras", listaElementos);
-												}
+													String elementosString = request.getParameter("prod");
 
-												String elementosString = request.getParameter("prod");
+													if (elementosString != null) {
+														int elemento = Integer.parseInt(request.getParameter("prod"));
 
-												if (elementosString != null) {
-													int elemento = Integer.parseInt(request.getParameter("prod"));
+														// if(listaElementos.contains(elemento)!=true){
 
-													// if(listaElementos.contains(elemento)!=true){
+														listaElementos.add(elemento);
+													}
+													// }
+													Double precioTotal = 0.00;
+													DecimalFormat formatter = new DecimalFormat("###.00");
 
-													listaElementos.add(elemento);
-												}
-												// }
-												Double precioTotal = 0.00;
-												DecimalFormat formatter = new DecimalFormat("###.00");
+													for (int elem : listaElementos) {
 
-												for (int elem : listaElementos) {
-
-													producto = controladorProducto.seleccionarPorId(elem);
-													columnas++;
-													precioTotal = precioTotal + producto.getPrecioVenta();
+														producto = controladorProducto.seleccionarPorId(elem);
+														columnas++;
+														precioTotal = precioTotal + producto.getPrecioVenta();
 											%>
 
 											<tr>
@@ -173,7 +176,8 @@
 										<thead>
 											<tr>
 												<th class="col-xs-9">Total productos: <%=columnas%></th>
-												<th class="col-xs-3"><b>TOTAL: <%=(formatter.format(precioTotal))%>€</b></th>
+												<th class="col-xs-3"><b>TOTAL: <%=(formatter.format(precioTotal))%>€
+												</b></th>
 											</tr>
 										</thead>
 
@@ -213,10 +217,10 @@
 
 									<%
 										ControladorCategoria controladorCategoria = new ControladorCategoria();
-										ArrayList<Categoria> categorias = new ArrayList<Categoria>();
-										categorias = controladorCategoria.todasCategorias();
+											ArrayList<Categoria> categorias = new ArrayList<Categoria>();
+											categorias = controladorCategoria.todasCategorias();
 
-										for (Categoria cat : categorias) {
+											for (Categoria cat : categorias) {
 									%>
 
 									<a class="shortcut tile"
@@ -240,7 +244,7 @@
 								<%
 									String categoria = request.getParameter("categoria");
 
-									if (categoria != null) {
+										if (categoria != null) {
 								%>
 								<li id="<%=categoria%>" class="tab-pane fade in active">
 
@@ -252,10 +256,10 @@
 
 											<%
 												controladorProducto = new ControladorProducto();
-													ArrayList<Producto> productos = new ArrayList<Producto>();
-													productos = controladorProducto.productoPorCategoria(Integer.parseInt(categoria));
+														ArrayList<Producto> productos = new ArrayList<Producto>();
+														productos = controladorProducto.productoPorCategoria(Integer.parseInt(categoria));
 
-													for (Producto prod : productos) {
+														for (Producto prod : productos) {
 											%>
 
 											<a class="shortcut tile"
@@ -287,10 +291,10 @@
 
 											<%
 												controladorProducto = new ControladorProducto();
-													ArrayList<Producto> todosProductos = new ArrayList<Producto>();
-													todosProductos = controladorProducto.todosProductos();
+														ArrayList<Producto> todosProductos = new ArrayList<Producto>();
+														todosProductos = controladorProducto.todosProductos();
 
-													for (Producto prod : todosProductos) {
+														for (Producto prod : todosProductos) {
 											%>
 
 
@@ -324,14 +328,21 @@
 		</div>
 	</div>
 
+	<%
+		} else {
+			out.println("Necesitas loguearte para ver esta pagina");
+	%> <script language="javascript">
+		window.location.href = "login.jsp"
+	</script> <%
+ 	}
+ %>
+
 	<hr class="whiter">
 
-	<!-- Javascript -->
-	<script src="index_files/jquery.js"></script>
-	<script src="index_files/jquery-ui.js"></script>
-	<script src="index_files/jquery_003.js"></script>
-	<script src="index_files/bootstrap.js"></script>
-	<script src="index_files/functions.js"></script>
-
+	<!-- Javascript --> <script src="index_files/jquery.js"></script> <script
+		src="index_files/jquery-ui.js"></script> <script
+		src="index_files/jquery_003.js"></script> <script
+		src="index_files/bootstrap.js"></script> <script
+		src="index_files/functions.js"></script>
 </body>
 </html>

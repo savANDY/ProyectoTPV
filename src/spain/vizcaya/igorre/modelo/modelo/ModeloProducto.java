@@ -101,8 +101,9 @@ public class ModeloProducto extends Conectar {
 				producto.setProveedor(Integer.parseInt(rs.getString(4)));
 				producto.setPrecioCompra(Double.parseDouble(rs.getString(5)));
 				producto.setPrecioVenta(Double.parseDouble(rs.getString(6)));
-				producto.setImagen(rs.getString(7));
-				producto.setColor(rs.getString(8));
+				producto.setIva(rs.getInt(7));
+				producto.setImagen(rs.getString(8));
+				producto.setColor(rs.getString(9));
 
 				productos.add(producto);
 

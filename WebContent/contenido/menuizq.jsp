@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    
+    <%
+		Usuario usuarioLogueado = null;
+		usuarioLogueado = (Usuario) session.getAttribute("Login");
+		if (usuarioLogueado != null) {
+	%>
+    
 <!-- Sidebar --> 
 	<aside id="sidebar"> 
 	
@@ -14,27 +21,25 @@
 			<img class="profile-pic animated" src="index_files/profile-pic.jpg" alt="">
 			</a>
 			<ul class="dropdown-menu profile-menu">
-				<li><a href="">My Profile</a> <i class="icon left"></i><i
+				<li><a href="">Mi perfil</a> <i class="icon left"></i><i
 					class="icon right"></i></li>
-				<li><a href="">Messages</a> <i class="icon left"></i><i
-					class="icon right"></i></li>
-				<li><a href="">Settings</a> <i class="icon left"></i><i
-					class="icon right"></i></li>
-				<li><a href="">Sign Out</a> <i class="icon left"></i><i
+				<li><a href="login.jsp?logOut=Si">Sign Out</a> <i class="icon left"></i><i
 					class="icon right"></i></li>
 			</ul>
-			<h4 class="m-0">Valeriu Andrei</h4>
+			<h4 class="m-0"><%=usuarioLogueado.getNombre()%> <%=usuarioLogueado.getApellidos()%></h4>
 			
 			<%
 			
 			Usuario usuario = new Usuario();
 			
-			if (usuario.isAdministrador()){
+			if (usuarioLogueado.isAdministrador()){
 				%>
 				@administrador
 				<%
-				
-				
+			} else {
+				%>
+				@camarero
+				<%
 			}
 				%>
 				
@@ -69,3 +74,9 @@
 	</ul>
 
 	</aside> 
+	
+	<%
+		}
+	%>
+	
+	
