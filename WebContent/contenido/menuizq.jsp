@@ -7,9 +7,11 @@
 	<div class="side-widgets overflow" style="overflow: hidden;" tabindex="5000">
 		<!-- Profile Menu -->
 		<div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
-			<a href="" data-toggle="dropdown"> <img
-				class="profile-pic animated" src="index_files/profile-pic.jpg"
-				alt="">
+			<%@page import="spain.vizcaya.igorre.modelo.clase.*"%>
+			
+			
+			<a href="" data-toggle="dropdown"> 
+			<img class="profile-pic animated" src="index_files/profile-pic.jpg" alt="">
 			</a>
 			<ul class="dropdown-menu profile-menu">
 				<li><a href="">My Profile</a> <i class="icon left"></i><i
@@ -22,7 +24,21 @@
 					class="icon right"></i></li>
 			</ul>
 			<h4 class="m-0">Valeriu Andrei</h4>
-			@camarero
+			
+			<%
+			
+			Usuario usuario = new Usuario();
+			
+			if (usuario.isAdministrador()){
+				%>
+				@administrador
+				<%
+				
+				
+			}
+				%>
+				
+			
 		</div>
 
 	</div>

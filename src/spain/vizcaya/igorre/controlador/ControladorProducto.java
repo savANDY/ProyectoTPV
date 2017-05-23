@@ -55,5 +55,15 @@ public class ControladorProducto {
 		return producto;
 	}
 	
+	public void borrarPorId(int idProducto) throws Exception{
+		try {
+			modeloProducto.borrarPorId(idProducto);
+		} catch (Exception e) {
+			System.out.println("Ha habido un error al intentar borrar un producto de la BBDD. " + e.getMessage());
+			throw e;
+			//e.printStackTrace();
+		}
+	}
+	
 	
 }

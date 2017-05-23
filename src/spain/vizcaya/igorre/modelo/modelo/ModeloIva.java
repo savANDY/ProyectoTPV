@@ -2,12 +2,42 @@ package spain.vizcaya.igorre.modelo.modelo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import spain.vizcaya.igorre.modelo.Conectar;
 import spain.vizcaya.igorre.modelo.clase.Iva;
+import spain.vizcaya.igorre.modelo.clase.Proveedor;
 
 public class ModeloIva extends Conectar {
 
+	public ArrayList<Iva> seleccionarTodas() {
+
+		PreparedStatement pst;
+		Iva iva;
+		ArrayList<Iva> ivas = new ArrayList<Iva>();
+
+		try {
+			pst = cn.prepareStatement("select * from iva");
+
+			ResultSet rs = pst.executeQuery();// ejecuta
+
+			while (rs.next()) {
+				iva = new Iva();
+				iva.setId(Integer.parseInt(rs.getString(1)));
+				iva.setNombre(rs.getString(2));
+				iva.setCantidad(Integer.parseInt(rs.getString(3)));
+
+				ivas.add(iva);
+			}
+			return ivas;
+
+		} catch (Exception e) {
+			System.out.println("No se han podido recuperar los proveedores de la BBDD");
+			return ivas;
+		}
+
+	}
+	
 	public Iva seleccionarPorId(int idIva) {
 
 		PreparedStatement ps;

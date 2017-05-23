@@ -27,10 +27,10 @@
 	visibility: hidden;
 	background: rgb(0, 0, 0) transparent;
 	background-color: rgba(0, 0, 0, 0.6);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#dc7f35,
 		endColorstr=#99000000);
 	-ms-filter:
-		"progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+		"progid:DXImageTransform.Microsoft.gradient(startColorstr=#dc7f35, endColorstr=#dc7f35)";
 	color: white;
 	font: 10px arial, san serif;
 	text-align: left;
@@ -48,7 +48,6 @@
 </style>
 </head>
 <body id="skin-blur-violate">
-
 
 	<%@page import="spain.vizcaya.igorre.controlador.*"%>
 	<%@page import="spain.vizcaya.igorre.modelo.Conectar"%>

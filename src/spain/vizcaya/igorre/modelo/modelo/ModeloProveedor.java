@@ -2,8 +2,11 @@ package spain.vizcaya.igorre.modelo.modelo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import spain.vizcaya.igorre.modelo.Conectar;
+import spain.vizcaya.igorre.modelo.clase.Producto;
+import spain.vizcaya.igorre.modelo.clase.Proveedor;
 
 public class ModeloProveedor extends Conectar {
 
@@ -29,6 +32,35 @@ public class ModeloProveedor extends Conectar {
 		}
 
 		return nombreCat;
+	}
+
+	public ArrayList<Proveedor> seleccionarTodos() {
+
+		PreparedStatement pst;
+		Proveedor proveedor;
+		ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
+
+		try {
+			pst = cn.prepareStatement("select * from proveedor");
+
+			ResultSet rs = pst.executeQuery();// ejecuta
+
+			while (rs.next()) {
+				proveedor = new Proveedor();
+				proveedor.setId(Integer.parseInt(rs.getString(1)));
+				proveedor.setNombre(rs.getString(2));
+				proveedor.setDireccion(rs.getString(3));
+				proveedor.setOtrosDatos(rs.getString(4));
+
+				proveedores.add(proveedor);
+			}
+			return proveedores;
+
+		} catch (Exception e) {
+			System.out.println("No se han podido recuperar los proveedores de la BBDD");
+			return proveedores;
+		}
+
 	}
 	
 }

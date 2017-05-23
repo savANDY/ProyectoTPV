@@ -147,4 +147,23 @@ public class ModeloProducto extends Conectar {
 
 	}
 
+	public void borrarPorId(int idProducto) throws Exception {
+		
+		try {
+			PreparedStatement pst = cn.prepareStatement("DELETE FROM producto WHERE id = ?");
+			pst.setInt(1, idProducto);
+			pst.execute();// ejecuta
+
+			if (pst.getUpdateCount() == 0) {// no a borrado nada
+				System.out.println("Se ha intentado borrar el producto (id:" + idProducto + ") pero... sin resultados");
+			} else {
+				System.out.println("Producto con id " + idProducto + " borrado de la BBDD");
+			}
+
+		} catch (Exception e) {
+			throw e;
+		}
+		
+	}
+
 }

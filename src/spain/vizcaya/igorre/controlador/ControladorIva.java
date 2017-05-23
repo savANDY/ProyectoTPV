@@ -1,6 +1,9 @@
 package spain.vizcaya.igorre.controlador;
 
+import java.util.ArrayList;
+
 import spain.vizcaya.igorre.modelo.clase.Iva;
+import spain.vizcaya.igorre.modelo.clase.Proveedor;
 import spain.vizcaya.igorre.modelo.modelo.ModeloIva;
 import spain.vizcaya.igorre.modelo.modelo.ModeloProducto;
 
@@ -19,6 +22,22 @@ public class ControladorIva {
 		iva = modeloIva.seleccionarPorId(idIva);
 		
 		return iva;
+	}
+	
+	public ArrayList<Iva> todasIvas() throws Exception {
+
+		ArrayList<Iva> ivas;
+
+		try {
+
+			ivas = modeloIva.seleccionarTodas();
+			return ivas;
+
+		} catch (Exception e) {
+			throw e;
+			// e.printStackTrace();
+			// e.getMessage();
+		}
 	}
 	
 	public int seleccionarCantidadPorId(int idIva){

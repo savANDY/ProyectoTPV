@@ -30,10 +30,10 @@
 	visibility: hidden;
 	background: rgb(0, 0, 0) transparent;
 	background-color: rgba(0, 0, 0, 0.6);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#dc7f35,
 		endColorstr=#99000000);
 	-ms-filter:
-		"progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+		"progid:DXImageTransform.Microsoft.gradient(startColorstr=#dc7f35, endColorstr=#dc7f35)";
 	color: white;
 	font: 10px arial, san serif;
 	text-align: left;
@@ -65,6 +65,7 @@
 	<%
 		ControladorProducto controladorProducto;
 		Iva iva;
+		Proveedor proveedor;
 	%>
 
 	<jsp:include page="contenido/header.jsp" />
@@ -120,16 +121,28 @@
 						ControladorCategoria controladorCategoria = new ControladorCategoria();
 						ControladorProveedor controladorProveedor = new ControladorProveedor();
 
+						controladorProveedor = new ControladorProveedor();
+						ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
+						proveedores = controladorProveedor.todosProveedores();
+						
+						ArrayList<Categoria> categorias = new ArrayList<Categoria>();
+						categorias = controladorCategoria.todasCategorias();
+						
+						ArrayList<Iva> ivas = new ArrayList<Iva>();
+						ivas = controladorIva.todasIvas();
+						
+						DecimalFormat formatter = new DecimalFormat("###.00");
+
 						for (Producto prod : productos) {
-							iva = new Iva();
+							
 					%>
 					<tr>
 						<td><%=prod.getId()%></td>
 						<td><%=prod.getNombre()%></td>
 						<td><%=controladorCategoria.seleccionarNombrePorId(prod.getCategoria())%></td>
 						<td><%=controladorProveedor.seleccionarNombrePorId(prod.getProveedor())%></td>
-						<td><%=prod.getPrecioCompra()%> €</td>
-						<td><%=prod.getPrecioVenta()%> €</td>
+						<td><%=formatter.format(prod.getPrecioCompra())%> €</td>
+						<td><%=formatter.format(prod.getPrecioVenta())%> €</td>
 						<td><%=controladorIva.seleccionarCantidadPorId(prod.getIva())%>
 							%</td>
 						<td><a href="#producto<%=prod.getId()%>"
@@ -174,10 +187,10 @@
 										<li class="list-group-item">Nombre: <%=prod.getNombre()%></li>
 										<li class="list-group-item">Categoria: <%=controladorCategoria.seleccionarNombrePorId(prod.getCategoria())%></li>
 										<li class="list-group-item">Proveedor: <%=controladorProveedor.seleccionarNombrePorId(prod.getProveedor())%></li>
-										<li class="list-group-item">Precio compra: <%=prod.getPrecioCompra()%>
+										<li class="list-group-item">Precio compra: <%=formatter.format(prod.getPrecioCompra())%>
 											€
 										</li>
-										<li class="list-group-item">Precio venta: <%=prod.getPrecioVenta()%>
+										<li class="list-group-item">Precio venta: <%=formatter.format(prod.getPrecioVenta())%>
 											€
 										</li>
 										<li class="list-group-item">IVA: <%=controladorIva.seleccionarCantidadPorId(prod.getIva())%>
@@ -208,24 +221,29 @@
 									<img src="<%=prod.getImagen()%>" style="max-width: 100%">
 								</div>
 								<div class="col-sm-8">
-									<form>
+
+
+									<form role="form" id="form-editar-producto" autocomplete="off"
+										action="editarProducto.jsp" method="get">
 										<ul class="list-group">
 											<li class="list-group-item">ID: <%=prod.getId()%></li>
 											<li class="list-group-item">
-											<div class="row">
+												<div class="row">
 													<div class="col-lg-3">
 														<label for="sel1">Nombre: <%=prod.getNombre()%>
 														</label>
 													</div>
 													<div class="col-lg-3">
-														<label for="sel1">Nuevo nombre </label>
+														<label for="sel1">Nuevo nombre: </label>
 													</div>
-													<div class="col-lg-3">
-														<input type="text" id="nombre" class="form-control input-sm m-b-10" placeholder="Nombre producto">
+													<div class="col-lg-4">
+														<input type="text" id="nombre"
+															class="form-control input-sm m-b-10"
+															placeholder="Nombre producto">
 													</div>
 												</div>
-											
-											
+
+
 											</li>
 											<li class="list-group-item">
 												<div class="row">
@@ -236,14 +254,14 @@
 													<div class="col-lg-3">
 														<label for="sel1">Nueva Categoria: </label>
 													</div>
-													<div class="col-lg-3">
+													<div class="col-lg-4">
 														<select class="form-control form-control m-b-10"
 															placeholder="Introduce la nueva categoria" id="categoria">
-
-															<option>Desayuno</option>
-															<option>Bebidas</option>
-															<option>Pinchos</option>
-															<option>Menu</option>
+															<%
+																for (Categoria cat : categorias) {
+																	%><option><%=cat.getNombre()%> (id:<%=cat.getId()%>)</option><%
+																	}
+															%>
 														</select>
 													</div>
 												</div>
@@ -258,51 +276,55 @@
 													<div class="col-lg-3">
 														<label for="sel1">Nuevo Proveedor: </label>
 													</div>
-													<div class="col-lg-3">
+													<div class="col-lg-4">
 														<select class="form-control form-control m-b-10"
 															placeholder="Introduce la nueva categoria" id="proveedor">
-
-															<option>Beer & Edariak</option>
-															<option>Gasca</option>
-															<option>Heineken</option>
-															<option>Coca Cola</option>
+															<%
+																for (Proveedor prov : proveedores) {
+																	%><option><%=prov.getNombre()%> (id:<%=prov.getId()%>)</option><%
+																	}
+															%>
 														</select>
 													</div>
 												</div>
 											</li>
-											
+
 											<li class="list-group-item">
 												<div class="row">
 													<div class="col-lg-3">
-														<label for="sel1">Precio compra: <%=prod.getPrecioCompra()%>
+														<label for="sel1">Precio compra: <%=formatter.format(prod.getPrecioCompra())%>
 															€
 														</label>
 													</div>
 													<div class="col-lg-3">
 														<label for="sel1">Nuevo precio compra: </label>
 													</div>
-													<div class="col-lg-3">
-														<input type="text" id="precioCompra" class="form-control input-sm m-b-10"
+													<div class="col-lg-4">
+														<input type="text" id="precioCompra"
+															class="form-control input-sm m-b-10"
 															placeholder="Precio compra">
 													</div>
 												</div>
 											</li>
-											
+
 											<li class="list-group-item">
-											<div class="row">
+												<div class="row">
 													<div class="col-lg-3">
-														<label for="sel1">Precio venta: <%=prod.getPrecioVenta()%> €
+														<label for="sel1">Precio venta: <%=formatter.format(prod.getPrecioVenta())%>
+															€
 														</label>
 													</div>
 													<div class="col-lg-3">
 														<label for="sel1">Nuevo precio venta: </label>
 													</div>
-													<div class="col-lg-3">
-														<input type="text" id="precioVenta" class="form-control input-sm m-b-10" placeholder="Precio venta">
+													<div class="col-lg-4">
+														<input type="text" id="precioVenta"
+															class="form-control input-sm m-b-10"
+															placeholder="Precio venta">
 													</div>
 												</div>
 											</li>
-											
+
 											<li class="list-group-item">
 												<div class="row">
 													<div class="col-lg-3">
@@ -313,11 +335,14 @@
 													<div class="col-lg-3">
 														<label for="sel1">Seleccionar IVA: </label>
 													</div>
-													<div class="col-lg-3">
+													<div class="col-lg-4">
 														<select class="form-control form-control m-b-10"
 															placeholder="Introduce la nueva categoria" id="iva">
-															<option>10 %</option>
-															<option>21 %</option>
+															<%
+																for (Iva iv : ivas) {
+																	%><option><%=iv.getNombre()%> (id:<%=iv.getId()%>)</option><%
+																	}
+															%>
 														</select>
 													</div>
 												</div>
@@ -326,6 +351,12 @@
 
 											</li>
 										</ul>
+										<div class="form-footer">
+											<button type="submit" class="btn btn-info">Guardar</button>
+											<button type="reset" class="btn btn-info">Borrar
+												campos</button>
+										</div>
+
 									</form>
 								</div>
 							</div>
@@ -354,8 +385,8 @@
 							</p>
 						</div>
 						<div class="modal-footer">
-							<a href="productos.jsp?borrarProducto=1" class="btn btn-default"
-								role="button">Si, quiero borrarlo</a>
+							<a href="borrarproducto.jsp?borrarProducto=<%=prod.getId()%>"
+								class="btn btn-default" role="button">Si, quiero borrarlo</a>
 							<button type="button" class="btn btn-default"
 								data-dismiss="modal">Cancelar</button>
 						</div>
