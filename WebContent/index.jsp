@@ -180,11 +180,13 @@
 												</b></th>
 											</tr>
 										</thead>
-
 									</table>
 
-									<div>
-										<a href="index.jsp?borrarLista=si">BORRAR</a>
+
+
+									<div class="btn-group btn-group-justified">
+										<a href="index.jsp?borrarLista=si" class="btn btn-alt">BORRAR
+											TICKET</a> <a href="#" class="btn btn-lg btn-alt">COBRAR</a>
 									</div>
 
 
@@ -337,7 +339,7 @@
  	}
  %>
 
-	<hr class="whiter">
+
 
 	<!-- Javascript --> <script src="index_files/jquery.js"></script> <script
 		src="index_files/jquery-ui.js"></script> <script

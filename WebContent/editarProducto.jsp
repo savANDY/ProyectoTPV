@@ -233,7 +233,7 @@
 
 
 									<form role="form" id="form-editar-producto" autocomplete="off"
-										action="editarProducto.jsp" method="get">
+										action="editarProducto.jsp">
 										<ul class="list-group">
 											<li class="list-group-item">ID: <%=prod.getId()%></li>
 											<li class="list-group-item">

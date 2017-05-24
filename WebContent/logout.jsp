@@ -78,73 +78,14 @@
 	</header>
 
 	<div class="clearfix"></div>
+<% session.invalidate(); %>
 
-	<%
-		Usuario usuarioLogueado = null;
-		usuarioLogueado = (Usuario) session.getAttribute("Login");
-
-		String contrasenia = null;
-		contrasenia = request.getParameter("Password");
-
-		if (contrasenia != null) {
-
-			Usuario usuario = new Usuario();
-			if (controladorUsuario.comprobarPassword(contrasenia) != null) {
-				usuario = controladorUsuario.comprobarPassword(contrasenia);
-			}
-
-			if (usuario.getNombre() == null) {
-	%>
-
-	<div class="alert alert-danger">Contraseña no encontrada
-		¡Inténtalo de nuevo!</div>
-
-	<%
-		}
-
-			if (String.valueOf(usuario.getContrasenia()).equals(String.valueOf(contrasenia))) {
-
-				session.setAttribute("Login", usuario);
-				usuarioLogueado = (Usuario) session.getAttribute("Login");
-
-			}
-
-		}
-
-		if (usuarioLogueado != null) {
-	%>
-	<h2 class="m-t-0 m-b-15">
-		Estás logueado como "<%=usuarioLogueado.getNombre()%> <%=usuarioLogueado.getApellidos()%>"
-	</h2>
-	<%
-		} else {
-	%> <!-- Login -->
-	<form action="login.jsp" method="get" class="box tile active"
-		id="box-login">
-		<h2 class="m-t-0 m-b-15">Contraseña</h2>
-		<input name="Password" type="password" class="login-control"
-			placeholder="Password">
-		<div class="checkbox m-b-20"></div>
-		<button class="btn btn-sm m-r-5">Loguearse</button>
-		<small><a class="box-switcher" data-switch="box-reset" href="">Contraseña
-				olvidada?</a> </small>
-	</form>
-
-	<%
-		}
-	%>
+			<h2 class="m-t-0 m-b-15">
+HAS CERRADO SESION
+			</h2>
 
 	<hr class="whiter">
-
-	<%
-		if (usuarioLogueado != null) {
-	%> <a href="index.jsp" class="btn btn-default" role="button">Página
-		Principal</a> <a href="logout.jsp" class="btn btn-default" role="button">Salir</a>
-	</section>
-	<%
-		}
-	%>
-
+	<a href="index.jsp" class="btn btn-default" role="button">Login</a> 
 	<!-- Javascript -->
 	<script src="index_files/jquery.js"></script>
 	<script src="index_files/jquery-ui.js"></script>

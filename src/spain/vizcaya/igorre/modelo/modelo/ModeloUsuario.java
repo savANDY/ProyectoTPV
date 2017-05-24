@@ -27,15 +27,14 @@ public class ModeloUsuario extends Conectar {
 				usuario.setNombre(rs.getString(3));
 				usuario.setApellidos(rs.getString(4));
 				usuario.setAdministrador(rs.getBoolean(5));
-				System.out.println("Dentro del rs next");
 				return usuario;
 				
 			} else {
-				System.out.println("Dentro del ELSE rs next");
 				return null;
 			}
 		} catch (Exception e) {
-			System.out.println("Error al seleccionar cantidad del iva");
+			System.out.println("Error al comprobar usuario");
+			
 			throw (e);
 		}
 	}

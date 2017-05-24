@@ -23,7 +23,7 @@
 			<ul class="dropdown-menu profile-menu">
 				<li><a href="">Mi perfil</a> <i class="icon left"></i><i
 					class="icon right"></i></li>
-				<li><a href="login.jsp?logOut=Si">Sign Out</a> <i class="icon left"></i><i
+				<li><a href="logout.jsp">Sign Out</a> <i class="icon left"></i><i
 					class="icon right"></i></li>
 			</ul>
 			<h4 class="m-0"><%=usuarioLogueado.getNombre()%> <%=usuarioLogueado.getApellidos()%></h4>
