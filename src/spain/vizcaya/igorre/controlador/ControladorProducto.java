@@ -14,6 +14,17 @@ public class ControladorProducto {
 		modeloProducto = new ModeloProducto();
 	}
 
+	
+	public void insertar(Producto producto) throws Exception{
+		
+		try {
+			modeloProducto.insertar(producto);
+		} catch (Exception e) {
+			throw e;
+		}
+		
+	}
+	
 	public ArrayList<Producto> todosProductos() throws Exception {
 
 		ArrayList<Producto> productos;

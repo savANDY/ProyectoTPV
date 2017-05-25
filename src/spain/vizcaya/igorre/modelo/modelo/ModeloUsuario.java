@@ -16,7 +16,7 @@ public class ModeloUsuario extends Conectar {
 			ps = cn.prepareStatement("SELECT * FROM usuario WHERE contrasenia = ?");
 			ps.setString(1, pass);
 
-			System.out.println(ps);
+			//System.out.println(ps);
 
 			ResultSet rs = ps.executeQuery();
 

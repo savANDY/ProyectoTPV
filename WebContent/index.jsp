@@ -153,7 +153,9 @@
 
 													for (int elem : listaElementos) {
 
+														try {
 														producto = controladorProducto.seleccionarPorId(elem);
+														
 														columnas++;
 														precioTotal = precioTotal + producto.getPrecioVenta();
 											%>
@@ -166,6 +168,10 @@
 											</tr>
 
 											<%
+														} catch (Exception e) {
+															// No hacer nada si no encuentra el producto
+															// LOG4J
+														}
 												}
 											%>
 

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2017 a las 21:57:10
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 7.1.1
+-- Tiempo de generación: 25-05-2017 a las 14:49:06
+-- Versión del servidor: 10.1.19-MariaDB
+-- Versión de PHP: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -92,7 +92,12 @@ INSERT INTO `producto` (`id`, `nombre`, `categoria`, `proveedor`, `precio_compra
 (11, 'Bocata Jamon Serrano', 5, 1, 2, 3.75, 1, './img/productos/predeterminado.png', 'FFA500'),
 (12, 'De tortilla', 3, 1, 0.8, 1.3, 1, './img/productos/pinchotortilla.jpg', 'FFA500'),
 (13, 'Cafe solo', 1, 1, 0.7, 1.3, 1, './img/productos/cafesolo.png', 'FFA500'),
-(14, 'Bollo mantequilla', 1, 1, 0.72, 1, 1, './img/productos/bollo.png', 'FFA500');
+(14, 'Bollo mantequilla', 1, 1, 0.72, 1, 1, './img/productos/bollo.png', 'FFA500'),
+(19, 'Vino Crianza', 4, 2, 0.8, 1.5, 2, './img/productos/predeterminado.png', 'FFA500'),
+(20, 'Vino Cosechero', 4, 2, 0.4, 0.7, 2, './img/productos/predeterminado.png', 'FFA500'),
+(24, 'Croissant', 1, 1, 0.9, 1, 1, './img/productos/predeterminado.png', 'FFA500'),
+(30, 'Madlena', 1, 1, 0.78, 1, 1, './img/productos/predeterminado.png', 'FFA500'),
+(31, 'Te', 1, 1, 0.68, 1.35, 1, './img/productos/predeterminado.png', 'FFA500');
 
 -- --------------------------------------------------------
 
@@ -135,7 +140,7 @@ CREATE TABLE `ticket` (
 
 CREATE TABLE `usuario` (
   `id` int(3) NOT NULL,
-  `contraseña` varchar(20) NOT NULL,
+  `contrasenia` varchar(20) NOT NULL,
   `nombre` varchar(20) NOT NULL,
   `apellidos` varchar(30) NOT NULL,
   `administrador` tinyint(1) NOT NULL DEFAULT '0'
@@ -145,7 +150,7 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `contraseña`, `nombre`, `apellidos`, `administrador`) VALUES
+INSERT INTO `usuario` (`id`, `contrasenia`, `nombre`, `apellidos`, `administrador`) VALUES
 (2, '1234', 'Valeriu Andrei', 'Sanautanu', 1);
 
 --
@@ -209,7 +214,7 @@ ALTER TABLE `iva`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
 --

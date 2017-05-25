@@ -13,6 +13,30 @@ public class ModeloProducto extends Conectar {
 		super();
 	}
 
+	
+	public void insertar(Producto producto) throws Exception {
+		// escribir la instruccion INSERT
+		try {
+
+			PreparedStatement pst = cn.prepareStatement("INSERT INTO producto (nombre, categoria, proveedor, precio_compra, precio_venta, iva) VALUES (?,?,?,?,?,?)");
+
+			// System.out.println(pst);
+
+			pst.setString(1, producto.getNombre());
+			pst.setInt(2, producto.getCategoria());
+			pst.setInt(3, producto.getProveedor());
+			pst.setDouble(4, producto.getPrecioCompra());
+			pst.setDouble(5, producto.getPrecioVenta());
+			pst.setInt(6, producto.getIva());
+
+			pst.execute();
+			
+		} catch (Exception e) {
+			throw (e);
+
+		}
+	}
+	
 	public ArrayList<Producto> seleccionarTodos() {
 
 		PreparedStatement pst;
@@ -46,41 +70,6 @@ public class ModeloProducto extends Conectar {
 		}
 
 	}
-
-//	public ArrayList<Producto> seleccionarTodosDetallados() {
-//
-//		PreparedStatement pst;
-//		Producto producto;
-//		ArrayList<Producto> productos = new ArrayList<Producto>();
-//
-//		try {
-//			pst = cn.prepareStatement(
-//					"select p.id,p.nombre,c.nombre categoria,prv.nombre proveedor,p.precio_compra,p.precio_venta, i.nombre iva from producto p, categoria c, proveedor prv, iva i WHERE (p.categoria=c.id) AND (p.iva=i.id) AND (p.proveedor=prv.id)");
-//
-//			ResultSet rs = pst.executeQuery();// ejecuta
-//
-//			while (rs.next()) {
-//				producto = new Producto();
-//				producto.setId(Integer.parseInt(rs.getString(1)));
-//				producto.setNombre(rs.getString(2));
-//				producto.setCategoria(Integer.parseInt(rs.getString(3)));
-//				producto.setProveedor(Integer.parseInt(rs.getString(4)));
-//				producto.setPrecioCompra(Double.parseDouble(rs.getString(5)));
-//				producto.setPrecioVenta(Double.parseDouble(rs.getString(6)));
-//				producto.setIva(rs.getInt(7));
-//				producto.setImagen(rs.getString(8));
-//				producto.setColor(rs.getString(9));
-//
-//				productos.add(producto);
-//			}
-//			return productos;
-//
-//		} catch (Exception e) {
-//			System.out.println("No se han podido recuperar los productos de la BBDD");
-//			return productos;
-//		}
-//
-//	}
 
 	public ArrayList<Producto> seleccionarPorCategoria(int idCategoria) {
 		PreparedStatement ps;
