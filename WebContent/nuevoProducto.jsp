@@ -20,7 +20,7 @@
 <link href="css/form.css" rel="stylesheet">
 <link href="index_files/calendar.css" rel="stylesheet">
 <link href="index_files/icons.css" rel="stylesheet">
-<link href="index_files/style.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 
 <style type="text/css">
 .jqstooltip {
@@ -50,7 +50,7 @@
 }
 </style>
 </head>
-<body id="skin-blur-violate">
+<body id="skin-interior-bar">
 
 
 	<%@page import="spain.vizcaya.igorre.controlador.*"%>
@@ -88,7 +88,7 @@
 	<%
 		Usuario usuarioLogueado = null;
 		usuarioLogueado = (Usuario) session.getAttribute("Login");
-		if (usuarioLogueado != null) {
+		if ((usuarioLogueado != null) && (usuarioLogueado.isAdministrador())) {
 	%>
 
 	<!-- Contenido -->
@@ -109,7 +109,7 @@
 		<hr class="whiter">
 
 		<form role="form" id="form-editar-producto" autocomplete="off"
-			action="productoAniadido.jsp" method="get">
+			action="productoAniadido.jsp" method="post">
 
 			<p>Nombre</p>
 			<input name="nombre" type="text" class="form-control m-b-10"
@@ -126,6 +126,20 @@
 					}
 				%>
 			</select>
+			
+			<p>Imagen</p>
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                        <div class="fileupload-preview thumbnail form-control"></div>
+                        
+                        <div>
+                            <span class="btn btn-file btn-alt btn-sm">
+                                <span class="fileupload-new">Seleccionar</span>
+                                <span class="fileupload-exists">Cambiar</span>
+                                <input type="file" name="imagen" />
+                            </span>
+                            <a href="#" class="btn fileupload-exists btn-sm" data-dismiss="fileupload">Borrar</a>
+                        </div>
+                    </div>
 
 			<p>Proveedor</p>
 			<select name="proveedor" class="form-control m-b-10">
@@ -178,14 +192,16 @@
 
 	<hr class="whiter">
 
-	<!-- Javascript --> <script src="index_files/jquery.js"></script> <script
-		src="index_files/jquery-ui.js"></script> <script
-		src="index_files/jquery_003.js"></script> <script
-		src="index_files/bootstrap.js"></script> <script
-		src="index_files/functions.js"></script> <%
+	<!-- Javascript --> <script src="js/jquery.js"></script> <script
+		src="js/jquery-ui.js"></script> <script
+		src="js/jquery_003.js"></script> <script
+		src="js/bootstrap.js"></script> <script
+		src="js/functions.js"></script>
+		<script src="js/fileupload.min.js"></script>
+		 <%
  	} else {
  %> <script language="javascript">
-		window.location.href = "login.jsp"
+		window.location.href = "index.jsp"
 	</script> <%
  	}
  %>

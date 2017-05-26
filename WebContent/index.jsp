@@ -16,11 +16,10 @@
 <title>TPV Bar Eguzki - Página Principal</title>
 
 <!-- CSS -->
-<link href="index_files/bootstrap.css" rel="stylesheet">
-<link href="index_files/form.css" rel="stylesheet">
-<link href="index_files/calendar.css" rel="stylesheet">
-<link href="index_files/icons.css" rel="stylesheet">
-<link href="index_files/style.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/form.css" rel="stylesheet">
+<link href="css/icons.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 <style type="text/css">
 .jqstooltip {
 	position: absolute;
@@ -49,7 +48,7 @@
 }
 </style>
 </head>
-<body id="skin-blur-violate">
+<body id="skin-interior-bar">
 
 	<%@page import="spain.vizcaya.igorre.controlador.*"%>
 	<%@page import="spain.vizcaya.igorre.modelo.Conectar"%>
@@ -63,8 +62,6 @@
 	<%
 		ControladorProducto controladorProducto;
 	%>
-
-
 
 	<jsp:include page="contenido/header.jsp" />
 
@@ -192,7 +189,18 @@
 
 									<div class="btn-group btn-group-justified">
 										<a href="index.jsp?borrarLista=si" class="btn btn-alt">BORRAR
-											TICKET</a> <a href="#" class="btn btn-lg btn-alt">COBRAR</a>
+											TICKET</a> 
+										
+										<% int numProducto = 0; %>	
+											
+										<a href="cobrar.jsp?cobrar=si
+										<% for (int elem : listaElementos) {
+											numProducto++;
+											%>&p<%=numProducto%>=<%=elem%>
+											<%
+										}
+											%>
+										" class="btn btn-lg btn-alt">COBRAR</a>
 									</div>
 
 
@@ -345,12 +353,11 @@
  	}
  %>
 
-
-
-	<!-- Javascript --> <script src="index_files/jquery.js"></script> <script
-		src="index_files/jquery-ui.js"></script> <script
-		src="index_files/jquery_003.js"></script> <script
-		src="index_files/bootstrap.js"></script> <script
-		src="index_files/functions.js"></script>
+	<!-- Javascript --> <script src="js/jquery.js"></script> <script
+		src="js/jquery-ui.js"></script> <script
+		src="js/jquery_003.js"></script> <script
+		src="js/bootstrap.js"></script> <script
+		src="js/functions.js"></script>
+		<script src="js/scroll.min.js"></script>
 </body>
 </html>

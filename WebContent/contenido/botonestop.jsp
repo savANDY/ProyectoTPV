@@ -25,15 +25,8 @@
 	<%
 		}
 	%>
-<a class="shortcut tile" href=""> <img
-		src="index_files/calendar.png" alt=""> <small class="t-overflow">Calendar</small>
-	</a> <a class="shortcut tile" href=""> <img src="index_files/stats.png"
-		alt=""> <small class="t-overflow">Statistics</small>
-	</a> <a class="shortcut tile" href=""> <img
-		src="index_files/connections.png" alt=""> <small
-		class="t-overflow">Connection</small>
-	</a> <a class="shortcut tile" href="productos.jsp"> <img
-		src="index_files/reports.png" alt=""> <small class="t-overflow">Productos</small>
+ <a class="shortcut tile" href="productos.jsp"> <img
+		src="img/icon/productos.png" alt=""> <small class="t-overflow">Productos</small>
 	</a>
 </div>
 

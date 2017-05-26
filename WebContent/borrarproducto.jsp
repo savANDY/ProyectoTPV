@@ -121,10 +121,10 @@
 
 	<hr class="whiter">
 
-	<!-- Javascript --> <script src="index_files/jquery.js"></script> <script
-		src="index_files/jquery-ui.js"></script> <script
-		src="index_files/jquery_003.js"></script> <script
-		src="index_files/bootstrap.js"></script> <script
-		src="index_files/functions.js"></script>
+	<!-- Javascript --> <script src="js/jquery.js"></script> <script
+		src="js/jquery-ui.js"></script> <script
+		src="js/jquery_003.js"></script> <script
+		src="js/bootstrap.js"></script> <script
+		src="js/functions.js"></script>
 </body>
 </html>

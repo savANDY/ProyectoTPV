@@ -20,7 +20,7 @@
 <link href="css/form.css" rel="stylesheet">
 <link href="index_files/calendar.css" rel="stylesheet">
 <link href="index_files/icons.css" rel="stylesheet">
-<link href="index_files/style.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 
 <style type="text/css">
 .jqstooltip {
@@ -50,7 +50,7 @@
 }
 </style>
 </head>
-<body id="skin-blur-violate">
+<body id="skin-interior-bar">
 
 
 	<%@page import="spain.vizcaya.igorre.controlador.*"%>
@@ -119,7 +119,7 @@
 	<%
 		} else {
 	%> <!-- Login -->
-	<form action="login.jsp" method="get" class="box tile active"
+	<form action="login.jsp" method="GET" class="box tile active"
 		id="box-login">
 		<h2 class="m-t-0 m-b-15">Contraseña</h2>
 		<input name="Password" type="password" class="login-control"
@@ -145,11 +145,10 @@
 		}
 	%>
 
-	<!-- Javascript -->
-	<script src="index_files/jquery.js"></script>
-	<script src="index_files/jquery-ui.js"></script>
-	<script src="index_files/jquery_003.js"></script>
-	<script src="index_files/bootstrap.js"></script>
-	<script src="index_files/functions.js"></script>
+<!-- Javascript --> <script src="js/jquery.js"></script> <script
+		src="js/jquery-ui.js"></script> <script
+		src="js/jquery_003.js"></script> <script
+		src="js/bootstrap.js"></script> <script
+		src="js/functions.js"></script>
 </body>
 </html>
