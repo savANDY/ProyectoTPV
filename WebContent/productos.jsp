@@ -16,10 +16,10 @@
 <title>TPV Bar Eguzki - Productos</title>
 
 <!-- CSS -->
-<link href="index_files/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/form.css" rel="stylesheet">
-<link href="index_files/calendar.css" rel="stylesheet">
-<link href="index_files/icons.css" rel="stylesheet">
+<link href="css/calendar.css" rel="stylesheet">
+<link href="css/icons.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 
 <style type="text/css">
@@ -100,6 +100,33 @@
 		src="js/tablaOrdenada/jquery.dataTables.min.js"></script> <script
 		src="js/tablaOrdenada/jquery-1.12.4.js"></script>
 
+<%
+						usuarioLogueado = (Usuario) session.getAttribute("Login");
+							controladorProducto = new ControladorProducto();
+							ArrayList<Producto> productos = new ArrayList<Producto>();
+							productos = controladorProducto.todosProductos();
+							
+							ArrayList<Producto> productosPorPrecio = new ArrayList<Producto>();
+							productosPorPrecio = controladorProducto.todosProductosPorPrecio();
+							
+							
+							ControladorIva controladorIva = new ControladorIva();
+							ControladorCategoria controladorCategoria = new ControladorCategoria();
+							ControladorProveedor controladorProveedor = new ControladorProveedor();
+
+							controladorProveedor = new ControladorProveedor();
+							ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
+							proveedores = controladorProveedor.todosProveedores();
+
+							ArrayList<Categoria> categorias = new ArrayList<Categoria>();
+							categorias = controladorCategoria.todasCategorias();
+
+							ArrayList<Iva> ivas = new ArrayList<Iva>();
+							ivas = controladorIva.todasIvas();
+
+							DecimalFormat formatter = new DecimalFormat("###.00");
+							%>
+
 	<div class="block-area" id="tableHover">
 		<h3 class="block-title">Visualizando todos los productos</h3>
 		<div class="table-responsive overflow">
@@ -119,26 +146,6 @@
 				</thead>
 				<tbody>
 					<%
-						usuarioLogueado = (Usuario) session.getAttribute("Login");
-							controladorProducto = new ControladorProducto();
-							ArrayList<Producto> productos = new ArrayList<Producto>();
-							productos = controladorProducto.todosProductos();
-							ControladorIva controladorIva = new ControladorIva();
-							ControladorCategoria controladorCategoria = new ControladorCategoria();
-							ControladorProveedor controladorProveedor = new ControladorProveedor();
-
-							controladorProveedor = new ControladorProveedor();
-							ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
-							proveedores = controladorProveedor.todosProveedores();
-
-							ArrayList<Categoria> categorias = new ArrayList<Categoria>();
-							categorias = controladorCategoria.todasCategorias();
-
-							ArrayList<Iva> ivas = new ArrayList<Iva>();
-							ivas = controladorIva.todasIvas();
-
-							DecimalFormat formatter = new DecimalFormat("###.00");
-
 							for (Producto prod : productos) {
 					%>
 					<tr>
@@ -170,6 +177,78 @@
 				</tbody>
 			</table>
 
+
+<a href="#productosPorPrecio"
+							class="btn btn-default btn-alt btn-xs" role="button"
+							data-toggle="modal">CONSULTAR POR PRECIO (menor a mayor)</a>
+							
+							<!-- CONSULTAR POR PRECIO-->
+
+<div class="modal fade" id="productosPorPrecio" role="dialog">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">
+								Borrar
+								</h4>
+						</div>
+						<div class="modal-body">
+
+		<div class="table-responsive overflow">
+			<table class="table table-bordered table-hover tile">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nombre</th>
+						<th>Categoria</th>
+						<th>Proveedor</th>
+						<th>Precio compra</th>
+						<th>Precio venta</th>
+						<th>IVA</th>
+						<th>Acciones</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<%
+							for (Producto prodPrecio : productosPorPrecio) {
+					%>
+					<tr>
+						<td><%=prodPrecio.getId()%></td>
+						<td><%=prodPrecio.getNombre()%></td>
+						<td><%=controladorCategoria.seleccionarNombrePorId(prodPrecio.getCategoria())%></td>
+						<td><%=controladorProveedor.seleccionarNombrePorId(prodPrecio.getProveedor())%></td>
+						<td><%=formatter.format(prodPrecio.getPrecioCompra())%> €</td>
+						<td><%=formatter.format(prodPrecio.getPrecioVenta())%> €</td>
+						<td><%=controladorIva.seleccionarCantidadPorId(prodPrecio.getIva())%>
+							%</td>
+						<td><a href="#producto<%=prodPrecio.getId()%>"
+							class="btn btn-default btn-alt btn-xs" role="button"
+							data-toggle="modal">VER</a> <%
+ 	if (usuarioLogueado.isAdministrador()) {
+ %> <a href="#modificarProducto<%=prodPrecio.getId()%>"
+							class="btn btn-default btn-alt btn-xs" role="button"
+							data-toggle="modal">EDITAR</a>
+
+							<button type="button" class="btn btn-info btn-alt btn-xs"
+								data-toggle="modal" data-target="#borrar-<%=prodPrecio.getId()%>">BORRAR</button>
+							<%
+								}
+							%></td>
+					</tr>
+					<%
+						}
+					%>
+				</tbody>
+			</table>
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+							
+							
 			<%
 				for (Producto prod : productos) {
 			%>
@@ -430,6 +509,39 @@
 					</div>
 				</div>
 			</div>
+			
+			
+						<div class="modal fade" id="borrar-<%=prod.getId()%>" role="dialog">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">
+								Borrar
+								<%=prod.getNombre()%></h4>
+						</div>
+						<div class="modal-body">
+							<div class="alert alert-danger">
+								<strong>ATENCION!</strong> ¡Al querer borrar un producto, éste
+								será borrado permanentemente y no se podrá recuperar!
+							</div>
+							<p>
+								Haz click en el boton de abajo si realmente quieres borrar "<%=prod.getNombre()%>".
+							</p>
+						</div>
+						<div class="modal-footer">
+							<a href="borrarproducto.jsp?borrarProducto=<%=prod.getId()%>"
+								class="btn btn-default" role="button">Si, quiero borrarlo</a>
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Cancelar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
 
 			<%
 				}
@@ -447,7 +559,7 @@
 
 
 
-
+	
 
 
 

@@ -22,7 +22,7 @@ public class ControladorProducto {
 		} catch (Exception e) {
 			throw e;
 		}
-		
+		 
 	}
 	
 	public boolean modificar(Producto producto) throws Exception {
@@ -52,6 +52,40 @@ public class ControladorProducto {
 			// e.getMessage();
 		}
 	}
+	
+	public ArrayList<Producto> buscarPorNombre(String nombre) throws Exception {
+
+		ArrayList<Producto> productos;
+
+		try {
+
+			productos = modeloProducto.buscarPorNombre(nombre);
+			return productos;
+
+		} catch (Exception e) {
+			throw e;
+			// e.printStackTrace();
+			// e.getMessage();
+		}
+	}
+	
+	public ArrayList<Producto> todosProductosPorPrecio() throws Exception {
+
+		ArrayList<Producto> productos;
+
+		try {
+
+			productos = modeloProducto.seleccionarTodosPorPrecio();
+			return productos;
+
+		} catch (Exception e) {
+			throw e;
+			// e.printStackTrace();
+			// e.getMessage();
+		}
+	}
+	
+	
 	public ArrayList<Producto> productoPorCategoria(int idCategoria) {
 		
 		ArrayList<Producto> productos = new ArrayList<Producto>();

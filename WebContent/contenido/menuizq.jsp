@@ -18,13 +18,13 @@
 			
 			
 			<a href="" data-toggle="dropdown"> 
-			<img class="profile-pic animated" src="index_files/profile-pic.jpg" alt="">
+			<img class="profile-pic animated" src="<%=usuarioLogueado.getRutaImagen()%>" alt="">
 			</a>
 			<ul class="dropdown-menu profile-menu">
-				<li><a href="">Mi perfil</a> <i class="icon left"></i><i
-					class="icon right"></i></li>
-				<li><a href="logout.jsp">Sign Out</a> <i class="icon left"></i><i
-					class="icon right"></i></li>
+				<li><a href="">Mi perfil</a> <i class="icon left">-</i><i
+					class="icon right">-</i></li>
+				<li><a href="logout.jsp">Salir</a> <i class="icon left">-</i><i
+					class="icon right">-</i></li>
 			</ul>
 			<h4 class="m-0"><%=usuarioLogueado.getNombre()%> <%=usuarioLogueado.getApellidos()%></h4>
 			
@@ -48,29 +48,13 @@
 
 	</div>
 
-	<!-- Side Menu -->
+	<!-- Menu -->
 	<ul class="list-unstyled side-menu">
 		<li class="active"><a class="sa-side-home"
 			href="index.jsp"> <span
 				class="menu-item">Principal</span>
 		</a></li>
 
-		<li class="dropdown"><a class="sa-side-page" href=""> <span
-				class="menu-item">Pages</span>
-		</a>
-			<ul class="list-unstyled menu-item">
-				<li><a
-					href="http://byrushan.com/projects/sa/1-0-3/list-view.html">List
-						View</a></li>
-				<li><a
-					href="http://byrushan.com/projects/sa/1-0-3/profile-page.html">Profile
-						Page</a></li>
-				<li><a
-					href="http://byrushan.com/projects/sa/1-0-3/messages.html">Messages</a></li>
-				<li><a href="http://byrushan.com/projects/sa/1-0-3/login.html">Login</a></li>
-				<li><a href="http://byrushan.com/projects/sa/1-0-3/404.html">404
-						Error</a></li>
-			</ul></li>
 	</ul>
 
 	</aside> 

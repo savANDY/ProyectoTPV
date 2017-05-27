@@ -31,6 +31,22 @@ public class ControladorProveedor {
 		}
 	}
 	
+	public ArrayList<Proveedor> buscarPorNombre(String nombre) throws Exception {
+
+		ArrayList<Proveedor> proveedores;
+
+		try {
+
+			proveedores = modeloProveedor.buscarPorNombre(nombre);
+			return proveedores;
+
+		} catch (Exception e) {
+			throw e;
+			// e.printStackTrace();
+			// e.getMessage();
+		}
+	}
+	
 	public String seleccionarNombrePorId(int idProveedor){
 		String nombreCat = "";
 		try {

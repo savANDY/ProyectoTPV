@@ -27,6 +27,7 @@ public class ModeloUsuario extends Conectar {
 				usuario.setNombre(rs.getString(3));
 				usuario.setApellidos(rs.getString(4));
 				usuario.setAdministrador(rs.getBoolean(5));
+				usuario.setRutaImagen(rs.getString(6));
 				return usuario;
 				
 			} else {

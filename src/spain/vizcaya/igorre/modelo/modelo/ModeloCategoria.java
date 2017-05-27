@@ -43,6 +43,38 @@ public class ModeloCategoria extends Conectar {
 		}
 
 	}
+	
+	
+	public ArrayList<Categoria> buscarPorNombre(String nombre) throws Exception {
+
+		PreparedStatement pst;
+		Categoria categoria;
+
+		try {
+			pst = cn.prepareStatement("select * from categoria WHERE nombre like '%" + nombre +"%'");
+
+			ResultSet rs = pst.executeQuery();// ejecuta
+
+			// pasar de ResultSet a ArrayList
+
+			ArrayList<Categoria> categorias = new ArrayList<Categoria>();
+
+			while (rs.next()) {
+				categoria = new Categoria();
+				categoria.setId(Integer.parseInt(rs.getString(1)));
+				categoria.setNombre(rs.getString(2));
+				categoria.setImagen(rs.getString(3));
+				categoria.setColor(rs.getString(4));
+
+				categorias.add(categoria);
+			}
+			return categorias;
+
+		} catch (Exception e) {
+			throw e;
+		}
+
+	}
 
 	public String seleccionarNombrePorId(int idCategoria) throws Exception {
 
@@ -66,6 +98,24 @@ public class ModeloCategoria extends Conectar {
 		}
 
 		return nombreCat;
+	}
+
+	public void insertar(Categoria categoria) throws Exception {
+		try {
+
+			PreparedStatement pst = cn.prepareStatement("INSERT INTO categoria (nombre) VALUES (?)");
+
+			// System.out.println(pst);
+
+			pst.setString(1, categoria.getNombre());
+
+			pst.execute();
+			
+		} catch (Exception e) {
+			throw (e);
+
+		}
+		
 	}
 
 }

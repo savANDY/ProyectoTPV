@@ -26,7 +26,7 @@
 		}
 	%>
  <a class="shortcut tile" href="productos.jsp"> <img
-		src="img/icon/productos.png" alt=""> <small class="t-overflow">Productos</small>
+		src="img/botones/productos.jpg" alt=""> <small class="t-overflow">Productos</small>
 	</a>
 </div>
 

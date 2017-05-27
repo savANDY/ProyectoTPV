@@ -16,11 +16,11 @@
 <title>TPV Bar Eguzki - Borrar Producto</title>
 
 <!-- CSS -->
-<link href="index_files/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/form.css" rel="stylesheet">
-<link href="index_files/calendar.css" rel="stylesheet">
-<link href="index_files/icons.css" rel="stylesheet">
-<link href="index_files/style.css" rel="stylesheet">
+<link href="css/calendar.css" rel="stylesheet">
+<link href="css/icons.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 
 <style type="text/css">
 .jqstooltip {
@@ -50,7 +50,7 @@
 }
 </style>
 </head>
-<body id="skin-blur-violate">
+<body id="skin-interior-bar">
 
 
 	<%@page import="spain.vizcaya.igorre.controlador.*"%>

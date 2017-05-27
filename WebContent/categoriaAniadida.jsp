@@ -13,7 +13,7 @@
 	content="TPV para el bar Eguzki lcoalizado en Igorre">
 <meta name="keywords" content="TPV, BAR EGUZKI, Bootstrap">
 
-<title>TPV Bar Eguzki - Productos</title>
+<title>TPV Bar Eguzki - Categoria Añadida</title>
 
 <!-- CSS -->
 <link href="css/bootstrap.css" rel="stylesheet">
@@ -63,34 +63,97 @@
 	<%@page import="java.text.DecimalFormat"%>
 
 	<%
-		ControladorUsuario controladorUsuario;
-		controladorUsuario = new ControladorUsuario();
-	%>
-	<jsp:include page="contenido/fondo.jsp" />
 
+		ControladorCategoria controladorCategoria = new ControladorCategoria();
+
+
+
+	%>
+
+	<jsp:include page="contenido/header.jsp" />
+	<jsp:include page="contenido/fondo.jsp" />
+	<jsp:include page="contenido/menuizq.jsp" />
+
+	<%
+		Usuario usuarioLogueado = null;
+		usuarioLogueado = (Usuario) session.getAttribute("Login");
+		if (usuarioLogueado != null) {
+	%>
 
 	<!-- Contenido -->
-	<section id="login"> <header>
-	<h1>TPV - BAR EGUZKI</h1>
-	<p>Para loguearse, solo necesita meter su contraseña. El sistema
-		automaticamente reconocerá quien es y tendrá acceso al tpv una vez
-		conectado.</p>
-	</header>
+	<section id="content" class="container"> <!-- Navegacion -->
+	<ol class="breadcrumb hidden-xs">
+		<li><a href="index.jsp">Principal</a></li>
+		<li class="active">Productos</li>
+	</ol>
 
-	<div class="clearfix"></div>
-<% session.invalidate(); %>
+	<h4 class="page-title">Añadiendo producto</h4>
+	<%
+		String nombreParametro = request.getParameter("nombre");
+					
+		
 
-			<h2 class="m-t-0 m-b-15">
-HAS CERRADO SESION
-			</h2>
+			if ((nombreParametro != null) && (nombreParametro != "")) {
 
+				Categoria categoria = new Categoria();
+				categoria.setNombre(nombreParametro);
+
+				try {
+					controladorCategoria.insertar(categoria);
+	%>
+
+	<div class="block-area">
+		<div class="alert alert-success">
+			¡Categoria "<%=categoria.getNombre()%>" añadida con exito!
+		</div>
+	</div>
+
+
+	<%
+		} catch (Exception e) {
+					//e.printStackTrace();
+	%>
+	<div class="block-area">
+		<div class="alert alert-danger">No se ha añadido la categoria.
+			¡Intentalo de nuevo, usa un nombre simple!</div>
+	</div>
+	<%
+		}
+
+			} else {
+	%>
+
+	<div class="block-area">
+		<div class="alert alert-danger">No se ha añadido el producto.
+			¡Necesitas rellenar todos los campos!</div>
+		<a href="nuevaCategoria.jsp" class="btn btn-default" role="button">Volver</a>
+	</div>
+	<%
+		}
+	%>
+	<div class="block-area">
+	<a href="nuevaCategoria.jsp" class="btn btn-default" role="button">Volver</a>
+	</div>
+	<br />
 	<hr class="whiter">
-	<a href="index.jsp" class="btn btn-default" role="button">Login</a> 
-	<!-- Javascript -->
-<!-- Javascript --> <script src="js/jquery.js"></script> <script
+	 </section>
+
+	
+
+	<!-- Javascript --> <script src="js/jquery.js"></script> <script
 		src="js/jquery-ui.js"></script> <script
 		src="js/jquery_003.js"></script> <script
 		src="js/bootstrap.js"></script> <script
 		src="js/functions.js"></script>
+	<%
+		} else {
+	%>
+	<script language="javascript">
+		window.location.href = "login.jsp"
+	</script>
+	<%
+		}
+	%>
+
 </body>
 </html>

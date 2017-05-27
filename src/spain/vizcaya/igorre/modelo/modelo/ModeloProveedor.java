@@ -62,5 +62,33 @@ public class ModeloProveedor extends Conectar {
 		}
 
 	}
+
+	public ArrayList<Proveedor> buscarPorNombre(String nombre) {
+		PreparedStatement pst;
+		Proveedor proveedor;
+		ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
+
+		try {
+			pst = cn.prepareStatement("select * from proveedor WHERE nombre like '%" + nombre +"%' AND id not like '1'");
+
+			ResultSet rs = pst.executeQuery();// ejecuta
+
+			while (rs.next()) {
+				proveedor = new Proveedor();
+				proveedor.setId(Integer.parseInt(rs.getString(1)));
+				proveedor.setNombre(rs.getString(2));
+				proveedor.setDireccion(rs.getString(3));
+				proveedor.setOtrosDatos(rs.getString(4));
+
+				proveedores.add(proveedor);
+			}
+			return proveedores;
+
+		} catch (Exception e) {
+			System.out.println("No se han podido recuperar los proveedores de la BBDD");
+			return proveedores;
+		}
+
+	}
 	
 }

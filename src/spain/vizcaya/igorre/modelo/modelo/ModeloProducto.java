@@ -181,4 +181,76 @@ public class ModeloProducto extends Conectar {
 
 	}
 
+
+	public ArrayList<Producto> seleccionarTodosPorPrecio() {
+
+		PreparedStatement pst;
+		Producto producto;
+		ArrayList<Producto> productos = new ArrayList<Producto>();
+
+		try {
+			pst = cn.prepareStatement("select * from producto ORDER BY precio_venta");
+
+			ResultSet rs = pst.executeQuery();// ejecuta
+
+			while (rs.next()) {
+				producto = new Producto();
+				producto.setId(Integer.parseInt(rs.getString(1)));
+				producto.setNombre(rs.getString(2));
+				producto.setCategoria(Integer.parseInt(rs.getString(3)));
+				producto.setProveedor(Integer.parseInt(rs.getString(4)));
+				producto.setPrecioCompra(Double.parseDouble(rs.getString(5)));
+				producto.setPrecioVenta(Double.parseDouble(rs.getString(6)));
+				producto.setIva(rs.getInt(7));
+				producto.setImagen(rs.getString(8));
+				producto.setColor(rs.getString(9));
+
+				productos.add(producto);
+			}
+			return productos;
+
+		} catch (Exception e) {
+			System.out.println("No se han podido recuperar los productos de la BBDD");
+			return productos;
+		}
+
+	}
+
+
+	public ArrayList<Producto> buscarPorNombre(String nombre) {
+		PreparedStatement pst;
+		Producto producto;
+		ArrayList<Producto> productos = new ArrayList<Producto>();
+
+		try {
+			pst = cn.prepareStatement("select * from producto WHERE nombre like '%" + nombre +"%'");
+			
+//			System.out.println(pst);
+			
+			ResultSet rs = pst.executeQuery();// ejecuta
+
+			while (rs.next()) {
+				producto = new Producto();
+				producto.setId(Integer.parseInt(rs.getString(1)));
+				producto.setNombre(rs.getString(2));
+				producto.setCategoria(Integer.parseInt(rs.getString(3)));
+				producto.setProveedor(Integer.parseInt(rs.getString(4)));
+				producto.setPrecioCompra(Double.parseDouble(rs.getString(5)));
+				producto.setPrecioVenta(Double.parseDouble(rs.getString(6)));
+				producto.setIva(rs.getInt(7));
+				producto.setImagen(rs.getString(8));
+				producto.setColor(rs.getString(9));
+
+				
+				
+				productos.add(producto);
+			}
+			return productos;
+
+		} catch (Exception e) {
+			System.out.println("No se han podido recuperar los productos de la BBDD");
+			return productos;
+		}
+	}
+
 }

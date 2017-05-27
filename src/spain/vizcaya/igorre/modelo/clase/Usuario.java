@@ -7,6 +7,7 @@ public class Usuario {
 	private String nombre;
 	private String apellidos;
 	private boolean administrador;
+	private String rutaImagen;
 
 	public int getId() {
 		return id;
@@ -48,13 +49,23 @@ public class Usuario {
 		this.administrador = administrador;
 	}
 
-	public Usuario(int id, String contrasenia, String nombre, String apellidos, boolean administrador) {
+	public String getRutaImagen() {
+		return rutaImagen;
+	}
+
+	public void setRutaImagen(String rutaImagen) {
+		this.rutaImagen = rutaImagen;
+	}
+	
+	public Usuario(int id, String contrasenia, String nombre, String apellidos, boolean administrador,
+			String rutaImagen) {
 		super();
 		this.id = id;
 		this.contrasenia = contrasenia;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.administrador = administrador;
+		this.rutaImagen = rutaImagen;
 	}
 
 	public Usuario() {

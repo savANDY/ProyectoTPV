@@ -16,10 +16,10 @@
 <title>TPV Bar Eguzki - Nueva Categoria</title>
 
 <!-- CSS -->
-<link href="index_files/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/form.css" rel="stylesheet">
-<link href="index_files/calendar.css" rel="stylesheet">
-<link href="index_files/icons.css" rel="stylesheet">
+<link href="css/calendar.css" rel="stylesheet">
+<link href="css/icons.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 
 <style type="text/css">
@@ -98,74 +98,27 @@
 		<li class="active">Productos</li>
 	</ol>
 
-	<h4 class="page-title">Nuevo producto</h4>
+	<h4 class="page-title">Nueva categoria</h4>
 
 	
 	<div class="block-area" id="text-input">
-		<h3 class="block-title">Añadiendo producto</h3>
+		<h3 class="block-title">Añadiendo Categoria</h3>
 
 		<p>Completa todos los campos para insertar un nuevo producto.</p>
 
 		<hr class="whiter">
 
 		<form role="form" id="form-editar-producto" autocomplete="off"
-			action="productoAniadido.jsp" method="get">
+			action="categoriaAniadida.jsp" method="get">
 
 			<p>Nombre</p>
 			<input name="nombre" type="text" class="form-control m-b-10"
-				placeholder="Introduce el nombre del producto">
+				placeholder="Introduce el nombre de la categoria">
 
-			<p>Categoria</p>
-			<select name="categoria" class="form-control m-b-10">
-
-				<%
-					for (Categoria cat : categorias) {
-				%><option><%=cat.getNombre()%> (id:<%=cat.getId()%>)
-				</option>
-				<%
-					}
-				%>
-			</select>
-
-			<p>Proveedor</p>
-			<select name="proveedor" class="form-control m-b-10">
-				<%
-					for (Proveedor prov : proveedores) {
-				%><option><%=prov.getNombre()%> (id:<%=prov.getId()%>)
-				</option>
-				<%
-					}
-				%>
-			</select>
-
-			<p>Precio</p>
-			<div class="row">
-				<div class="col-lg-6">
-					<input name="precioCompra" type="text" class="form-control m-b-10"
-						placeholder="Precio compra">
-				</div>
-				<div class="col-lg-6">
-					<input name="precioVenta" type="text" class="form-control m-b-10"
-						placeholder="Precio venta">
-				</div>
-
-				<div class="clearfix"></div>
-			</div>
-
-			<p>IVA</p>
-			<select name="iva" class="form-control m-b-10">
-				<%
-					for (Iva iv : ivas) {
-				%><option><%=iv.getNombre()%> (id:<%=iv.getId()%>)
-				</option>
-				<%
-					}
-				%>
-
-			</select> <br />
+			 <br />
 
 			<button type="submit" class="btn btn-info btn-sm m-t-10">AÑADIR
-				PRODUCTO</button>
+				CATEGORIA</button>
 			<button type="reset" class="btn btn-info btn-sm m-t-10">BORRAR
 				CAMPOS</button>
 
