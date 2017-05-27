@@ -93,103 +93,161 @@
 		<li class="active">Productos</li>
 	</ol>
 
-	<h4 class="page-title">PRODUCTOS</h4>
+	<h4 class="page-title">TICKET</h4>
 
 	<script src="js/tablaOrdenada.js"></script> <script
 		src="js/tablaOrdenada/dataTables.bootstrap.min.js"></script> <script
 		src="js/tablaOrdenada/jquery.dataTables.min.js"></script> <script
 		src="js/tablaOrdenada/jquery-1.12.4.js"></script>
 
-	<div class="block-area" id="tableHover">
-		<h3 class="block-title">Visualizando todos los productos</h3>
-		<div class="table-responsive overflow">
-			<table class="table table-bordered table-hover tile">
-				<thead>
-					<tr>
-						<th>Id</th>
-						<th>Nombre</th>
-						<th>Precio venta</th>
-						<th>IVA</th>
+	<h3 class="block-title">Generar ticket</h3>
+	
+	<%
+	usuarioLogueado = (Usuario) session.getAttribute("Login");
+	controladorProducto = new ControladorProducto();
+	ControladorTicket controladorTicket = new ControladorTicket();
+	ArrayList<Producto> productos = new ArrayList<Producto>();
 
-					</tr>
-				</thead>
-				<tbody>
-					<%
-						usuarioLogueado = (Usuario) session.getAttribute("Login");
-							controladorProducto = new ControladorProducto();
-							ArrayList<Producto> productos = new ArrayList<Producto>();
-							productos = controladorProducto.todosProductos();
-							ControladorIva controladorIva = new ControladorIva();
-							ControladorCategoria controladorCategoria = new ControladorCategoria();
-							ControladorProveedor controladorProveedor = new ControladorProveedor();
+	DecimalFormat formatter = new DecimalFormat("###.00");
 
-							controladorProveedor = new ControladorProveedor();
-							ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
-							proveedores = controladorProveedor.todosProveedores();
+	List<Integer> listaElementos = (ArrayList<Integer>)session.getAttribute("misCompras");
+	Producto producto;
+	int columnas = 0;
+	double precioTotal = 0.0;
+	
+	
+	for (int elem : listaElementos) {
+		productos.add(controladorProducto.seleccionarPorId(elem));
+	}
+	
+	String parametroCobrar = request.getParameter("cobrar");
+	
+	boolean listavacia = false;
+	
+	if (listaElementos.isEmpty()){
+		listavacia = true;
+	}
+	
+	if (!listavacia) {
+	
+	if (parametroCobrar != null){
+		
+		Ticket ticket = new Ticket();
+		
+		ticket.setId(controladorTicket.generarNuevoId());
+		ticket.setProductos(productos);
+		
+		for (Producto prod: ticket.getProductos()){
+			
+			try {
+			controladorTicket.nuevoTicket(ticket.getId(), prod.getId());
+			} catch (Exception e){
+				%>
+				<p>No se ha podido guardar<%=prod.getNombre()%> en la base de datos.</p>
+				<%
+			}
+		} // ACABA EL FOR
+		%>
+		<div class="block-area">
+		<div class="alert alert-success">
+        Ticket creado. ID ticket: <%=ticket.getId()%>
+    </div>
+    </div>
+    <h3 class="block-title">Opciones</h3>
+                    <div class="clearfix"></div>
+                    <a href="index.jsp"><button class="btn m-r-5">Volver</button></a>
+                    <a href="logout.jsp"><button class="btn m-r-5">Cerrar sesion</button></a>
+                </div>
+		<%
+		Iterator<Integer> i = listaElementos.iterator();
+		while (i.hasNext()) {
+			int s = i.next(); // must be called before you can call i.remove()
+			// Do something
+			i.remove();
+		}
+	} else { // ACABA IF PARAMETROCOBRAR != NULL
+	
 
-							DecimalFormat formatter = new DecimalFormat("###.00");
+	%>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="btn-group btn-group-justified" style="margin-top:15px">
+				<a href="index.jsp" class="btn btn-alt">Cancelar (volver)</a> <a href="index.jsp?borrarLista=si" class="btn btn-alt">Borrar ticket</a>
+			</div>
+			<a href="cobrar.jsp?cobrar=si" class="btn btn-block btn-alt btn-cobrar">COBRAR</a>
+		</div>
+	<div class="col-md-6">
+		<div class="block-area" id="tableHover">
+			<div class="table-responsive overflow">
+				<table class="table table-bordered table-hover tile">
+					<thead>
+						<tr>
+							<th>Nº</th>
+							<th>Nombre</th>
+							<th>Precio</th>
+						</tr>
+					</thead>
+					<tbody>
+						<%
+								for (int elem : listaElementos) {
 
-							List<Integer> listaElementos = (ArrayList<Integer>) session.getAttribute("misCompras");
-							Producto producto;
-							int columnas = 0;
-							double precioTotal = 0.0;
-							
-							for (int elem : listaElementos) {
+									try {
+										producto = controladorProducto.seleccionarPorId(elem);
 
-								try {
-								producto = controladorProducto.seleccionarPorId(elem);
-								
-								columnas++;
-								precioTotal = precioTotal + producto.getPrecioVenta();
-					%>
-					
-					<tr>
-												<td id="columna<%=columnas%>" class="col-xs-1"><%=columnas%></td>
-												<td class="col-xs-1">1x</td>
-												<td class="col-xs-8"><%=producto.getNombre()%></td>
-												<td class="col-xs-2"><%=(formatter.format(producto.getPrecioVenta()))%>€</td>
-											</tr>
+										columnas++;
+										precioTotal = precioTotal + producto.getPrecioVenta();
+						%>
 
-											<%
-														} catch (Exception e) {
-															// No hacer nada si no encuentra el producto
-															// LOG4J
-														}
-												}
-											%>
+						<tr>
+							<td id="columna<%=columnas%>" class="col-xs-1"><%=columnas%></td>
+							<td class="col-xs-9"><%=producto.getNombre()%></td>
+							<td class="col-xs-2"><%=(formatter.format(producto.getPrecioVenta()))%>€</td>
 
-										</tbody>
-									</table>
+						</tr>
 
-			<%
-				
-				} else {
-			%>
-			<script language="javascript">
-				window.location.href = "login.jsp"
-			</script>
+						<%
+							} catch (Exception e) {
+										// No hacer nada si no encuentra el producto
+										// LOG4J
+									}
+								}
+						%>
 
-			<%
-				}
-			%>
-
-
-
-
-
-
-
-
-
-
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
+	</div>
+	<%
+	} 
+	}else {
+		%>
+		<div class="alert alert-danger">
+                        Debes seleccionar algún producto primero, el ticket no se puede crear sin productos!
+                    </div>
+                    <div class="block-area" id="buttons">
+                    <h3 class="block-title">Opciones</h3>
+                    <div class="clearfix"></div>
+                    <a href="index.jsp"><button class="btn m-r-5">Volver</button></a>
+                    <a href="logout.jsp"><button class="btn m-r-5">Cerrar sesion</button></a>
+                </div>
+		<%
+	}
+	} else {
+		%>
+		<script language="javascript">
+			window.location.href = "login.jsp"
+		</script>
+
+		<%
+	}
+		
+		%>
 	<hr class="whiter">
 
 	<!-- Javascript --> <script src="js/jquery.js"></script> <script
-		src="js/jquery-ui.js"></script> <script
-		src="js/jquery_003.js"></script> <script
-		src="js/bootstrap.js"></script> <script
-		src="js/functions.js"></script>
+		src="js/jquery-ui.js"></script> <script src="js/jquery_003.js"></script>
+	<script src="js/bootstrap.js"></script> <script src="js/functions.js"></script>
 </body>
 </html>

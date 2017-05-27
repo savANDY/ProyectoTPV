@@ -193,14 +193,7 @@
 										
 										<% int numProducto = 0; %>	
 											
-										<a href="cobrar.jsp?cobrar=si
-										<% for (int elem : listaElementos) {
-											numProducto++;
-											%>&p<%=numProducto%>=<%=elem%>
-											<%
-										}
-											%>
-										" class="btn btn-lg btn-alt">COBRAR</a>
+										<a href="cobrar.jsp" class="btn btn-lg btn-alt">COBRAR</a>
 									</div>
 
 

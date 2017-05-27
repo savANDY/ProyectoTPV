@@ -233,9 +233,30 @@
 
 
 									<form role="form" id="form-editar-producto" autocomplete="off"
-										action="editarProducto.jsp" method="get">
+										action="productoModificado.jsp" method="get">
 										<ul class="list-group">
-											<li class="list-group-item">ID: <%=prod.getId()%></li>
+										
+										
+										<li class="list-group-item">
+												<div class="row">
+													<div class="col-lg-3">
+														<label for="sel1">ID PRODUCTO
+														</label>
+													</div>
+													<div class="col-lg-3">
+														<label for="sel1">(no se puede modificar)</label>
+													</div>
+													<div class="col-lg-4">
+														<select name="idProducto" class="form-control form-control m-b-10" id="idproducto">
+															<option><%=prod.getId()%>
+															</option>
+															
+														</select>
+													</div>
+												</div>
+											</li>
+										
+											
 											<li class="list-group-item">
 												<div class="row">
 													<div class="col-lg-3">
@@ -246,7 +267,7 @@
 														<label for="sel1">Nuevo nombre: </label>
 													</div>
 													<div class="col-lg-4">
-														<input type="text" id="nombre"
+														<input name="nombre" type="text" id="nombre"
 															class="form-control input-sm m-b-10"
 															placeholder="Nombre producto">
 													</div>
@@ -254,6 +275,7 @@
 
 
 											</li>
+											
 											<li class="list-group-item">
 												<div class="row">
 													<div class="col-lg-3">
@@ -264,7 +286,7 @@
 														<label for="sel1">Nueva Categoria: </label>
 													</div>
 													<div class="col-lg-4">
-														<select class="form-control form-control m-b-10"
+														<select name="categoria" class="form-control form-control m-b-10"
 															placeholder="Introduce la nueva categoria" id="categoria">
 															<%
 																for (Categoria cat : categorias) {
@@ -288,7 +310,7 @@
 														<label for="sel1">Nuevo Proveedor: </label>
 													</div>
 													<div class="col-lg-4">
-														<select class="form-control form-control m-b-10"
+														<select name="proveedor" class="form-control form-control m-b-10"
 															placeholder="Introduce la nueva categoria" id="proveedor">
 															<%
 																for (Proveedor prov : proveedores) {
@@ -313,7 +335,7 @@
 														<label for="sel1">Nuevo precio compra: </label>
 													</div>
 													<div class="col-lg-4">
-														<input type="text" id="precioCompra"
+														<input name="precioCompra" type="text" id="precioCompra"
 															class="form-control input-sm m-b-10"
 															placeholder="Precio compra">
 													</div>
@@ -331,7 +353,7 @@
 														<label for="sel1">Nuevo precio venta: </label>
 													</div>
 													<div class="col-lg-4">
-														<input type="text" id="precioVenta"
+														<input name="precioVenta" type="text" id="precioVenta"
 															class="form-control input-sm m-b-10"
 															placeholder="Precio venta">
 													</div>
@@ -349,7 +371,7 @@
 														<label for="sel1">Seleccionar IVA: </label>
 													</div>
 													<div class="col-lg-4">
-														<select class="form-control form-control m-b-10"
+														<select name="iva" class="form-control form-control m-b-10"
 															placeholder="Introduce la nueva categoria" id="iva">
 															<%
 																for (Iva iv : ivas) {

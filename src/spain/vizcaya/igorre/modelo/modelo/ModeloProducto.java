@@ -2,6 +2,8 @@ package spain.vizcaya.igorre.modelo.modelo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import spain.vizcaya.igorre.modelo.Conectar;
@@ -154,6 +156,29 @@ public class ModeloProducto extends Conectar {
 			throw e;
 		}
 		
+	}
+
+
+	public boolean modificar(Producto producto) throws Exception {
+		
+		Statement st = super.cn.createStatement();
+
+		int lineascambiadas;
+		try {
+			lineascambiadas = st.executeUpdate("UPDATE producto SET nombre='" + producto.getNombre() + "', categoria='" + producto.getCategoria() + "', proveedor='" + producto.getProveedor() + "', precio_compra='"+ producto.getPrecioCompra()+"', precio_venta='" + producto.getPrecioVenta()+ "'"
+					+ " WHERE id='" + producto.getId()+ "'");
+			
+			
+			if (lineascambiadas > 0){
+				return true;
+			} else {
+				return false;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw e;
+		}
+
 	}
 
 }

@@ -25,6 +25,18 @@ public class ControladorProducto {
 		
 	}
 	
+	public boolean modificar(Producto producto) throws Exception {
+		try {
+			if (modeloProducto.modificar(producto)){
+				return true;
+			} else {
+				return false;
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
 	public ArrayList<Producto> todosProductos() throws Exception {
 
 		ArrayList<Producto> productos;
