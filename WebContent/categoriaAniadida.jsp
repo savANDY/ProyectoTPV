@@ -124,7 +124,7 @@
 	%>
 
 	<div class="block-area">
-		<div class="alert alert-danger">No se ha añadido el producto.
+		<div class="alert alert-danger">No se ha añadido la categoria.
 			¡Necesitas rellenar todos los campos!</div>
 		<a href="nuevaCategoria.jsp" class="btn btn-default" role="button">Volver</a>
 	</div>

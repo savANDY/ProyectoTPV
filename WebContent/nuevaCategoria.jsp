@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if IE 9 ]><html class="ie9"><![endif]-->
-<html>
+<html lang="es">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name="viewport"
@@ -92,7 +92,7 @@
 	%>
 
 	<!-- Contenido -->
-	<section id="content" class="container"> <!-- Navegacion -->
+	<section lang="en" id="content" class="container"> <!-- Navegacion -->
 	<ol class="breadcrumb hidden-xs">
 		<li><a href="index.jsp">Principal</a></li>
 		<li class="active">Productos</li>

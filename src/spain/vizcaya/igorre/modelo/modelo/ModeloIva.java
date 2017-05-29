@@ -57,7 +57,7 @@ public class ModeloIva extends Conectar {
 			}
 		} catch (Exception e) {
 			System.out.println("Error al seleccionar iva");
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 
 		return null;

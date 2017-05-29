@@ -153,7 +153,7 @@ public class ModeloProducto extends Conectar {
 			}
 
 		} catch (Exception e) {
-			throw e;
+			//throw e;
 		}
 		
 	}

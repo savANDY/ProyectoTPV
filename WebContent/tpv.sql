@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-05-2017 a las 14:49:06
+-- Tiempo de generación: 29-05-2017 a las 13:37:20
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 5.6.28
 
@@ -41,7 +41,8 @@ INSERT INTO `categoria` (`id`, `nombre`, `imagen`, `color`) VALUES
 (1, 'Desayuno', './img/categorias/desayuno.png', 'FF8C00'),
 (3, 'Pinchos', './img/categorias/pinchos.png', '57A639'),
 (4, 'Bebidas', './img/categorias/bebidas.png', 'FF6347'),
-(5, 'Menu', './img/categorias/menu.png', 'FF6347');
+(5, 'Menu', './img/categorias/menu.png', 'FF6347'),
+(6, 'NUEVA CAT PRUEBA', './img/categorias/predeterminado.png', 'FF6347');
 
 -- --------------------------------------------------------
 
@@ -86,10 +87,10 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id`, `nombre`, `categoria`, `proveedor`, `precio_compra`, `precio_venta`, `iva`, `imagen`, `color`) VALUES
-(7, 'Hamburguesa', 3, 1, 0.7, 1.5, 1, './img/productos/hamburguesa.png', 'FFA500'),
+(7, 'BURGER', 5, 1, 1.1, 3, 1, './img/productos/hamburguesa.png', 'FFA500'),
 (8, 'Cafe Leche', 1, 1, 0.7, 1.4, 1, './img/productos/cafeleche.png', 'FFA500'),
 (9, 'Kalimotxo', 4, 2, 1.3, 2.5, 2, './img/productos/calimocho.png', 'FFA500'),
-(11, 'Bocata Jamon Serrano', 5, 1, 2, 3.75, 1, './img/productos/predeterminado.png', 'FFA500'),
+(11, 'Bocata Jamon Serrano', 5, 1, 2, 3.75, 1, './img/productos/bocatajamon.jpg', 'FFA500'),
 (12, 'De tortilla', 3, 1, 0.8, 1.3, 1, './img/productos/pinchotortilla.jpg', 'FFA500'),
 (13, 'Cafe solo', 1, 1, 0.7, 1.3, 1, './img/productos/cafesolo.png', 'FFA500'),
 (14, 'Bollo mantequilla', 1, 1, 0.72, 1, 1, './img/productos/bollo.png', 'FFA500'),
@@ -97,7 +98,7 @@ INSERT INTO `producto` (`id`, `nombre`, `categoria`, `proveedor`, `precio_compra
 (20, 'Vino Cosechero', 4, 2, 0.4, 0.7, 2, './img/productos/predeterminado.png', 'FFA500'),
 (24, 'Croissant', 1, 1, 0.9, 1, 1, './img/productos/predeterminado.png', 'FFA500'),
 (30, 'Madlena', 1, 1, 0.78, 1, 1, './img/productos/predeterminado.png', 'FFA500'),
-(31, 'Te', 1, 1, 0.68, 1.35, 1, './img/productos/predeterminado.png', 'FFA500');
+(33, 'Te rijo', 1, 2, 0.5, 1.3, 1, './img/productos/predeterminado.png', 'FFA500');
 
 -- --------------------------------------------------------
 
@@ -132,6 +133,16 @@ CREATE TABLE `ticket` (
   `fecha_venta` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `ticket`
+--
+
+INSERT INTO `ticket` (`id`, `id_producto`, `fecha_venta`) VALUES
+(1, 8, '2017-05-29 10:42:28'),
+(1, 9, '2017-05-29 10:42:28'),
+(2, 8, '2017-05-29 12:30:19'),
+(2, 9, '2017-05-29 12:30:19');
+
 -- --------------------------------------------------------
 
 --
@@ -143,15 +154,17 @@ CREATE TABLE `usuario` (
   `contrasenia` varchar(20) NOT NULL,
   `nombre` varchar(20) NOT NULL,
   `apellidos` varchar(30) NOT NULL,
-  `administrador` tinyint(1) NOT NULL DEFAULT '0'
+  `administrador` tinyint(1) NOT NULL DEFAULT '0',
+  `ruta_imagen` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `contrasenia`, `nombre`, `apellidos`, `administrador`) VALUES
-(2, '1234', 'Valeriu Andrei', 'Sanautanu', 1);
+INSERT INTO `usuario` (`id`, `contrasenia`, `nombre`, `apellidos`, `administrador`, `ruta_imagen`) VALUES
+(2, '1234', 'Valeriu Andrei', 'Sanautanu', 1, 'img/profile-pics/ander.jpg'),
+(3, '1212', 'Maria', 'Angel', 0, 'img/profile-pics/maria.jpg');
 
 --
 -- Índices para tablas volcadas
@@ -204,7 +217,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `iva`
 --
@@ -214,7 +227,7 @@ ALTER TABLE `iva`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
@@ -224,7 +237,7 @@ ALTER TABLE `proveedor`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Restricciones para tablas volcadas
 --
