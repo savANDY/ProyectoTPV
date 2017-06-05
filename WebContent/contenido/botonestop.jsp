@@ -22,6 +22,11 @@
 		src="img/botones/plus-icon.png" alt=""> <small
 		class="t-overflow">Producto</small>
 	</a>
+	
+	<a class="shortcut tile" href="nuevoUsuario.jsp"> <img
+		src="img/botones/plus-icon.png" alt="" style=""> <small
+		class="t-overflow">Usuario</small>
+	</a>
 	<%
 		}
 	%>
